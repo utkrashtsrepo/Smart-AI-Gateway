@@ -292,25 +292,6 @@ The containerized service will listen on `http://localhost:8000` with persistent
 
 ---
 
-## 🎤 Interview Cheatsheet: What to Say to Senior Interviewers
-
-### Q1: "Why did you build a heuristic router instead of using a smaller LLM as a router?"
-> *"Using an LLM (even a small 8B model) to route requests creates two fundamental issues: it adds 300–600ms of extra TTFT (Time to First Token) latency, and you pay inference tokens on every single routing decision. Our multi-signal heuristic engine evaluates token context, code syntax, and reasoning markers in **less than 0.1 milliseconds** at **zero financial cost**, and every decision is 100% deterministic, explainable, and logged directly to our audit ledger."*
-
-### Q2: "How do your custom scorers work for Agent Evals?"
-> *"Rather than relying on black-box evaluation frameworks that invoke another expensive LLM judge, we built deterministic scorers from first principles:
-> 1. `score_answer`: Normalizes text and evaluates exact match, entity containment, and numerical tolerance ($\pm 2\%$).
-> 2. `score_tools`: Calculates Precision, Recall, and $F_1$ score on the agent's tool invocation sequence.
-> 3. `score_trajectory`: Penalizes inefficient step loops.
-> This makes our CI/CD evaluation harness instantaneous, reproducible, and zero-cost."*
-
-### Q3: "How does the gateway handle provider rate limits and downtime?"
-> *"We built a two-tiered reliability manager in `app/reliability.py`:
-> First, transient errors (HTTP 429 rate limits, 500/502/503/504 errors, network timeouts) trigger exponential backoff with randomized jitter and token-per-minute (TPM) retry hints.
-> If retries are exhausted, the gateway triggers automatic model fallback, immediately re-dispatching the request to our secondary backup provider without returning a 5xx error to the client."*
-
----
-
 ## 📜 License
 
 This project is licensed under the MIT License.
