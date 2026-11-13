@@ -1,0 +1,273 @@
+[
+  {
+    "id": "easy_01",
+    "category": "easy",
+    "question": "What is the capital city of France?",
+    "expected_answer": "Paris",
+    "expected_tools": [],
+    "eval_type": "contains",
+    "expected_steps": 1
+  },
+  {
+    "id": "easy_02",
+    "category": "easy",
+    "question": "What is the capital city of Japan?",
+    "expected_answer": "Tokyo",
+    "expected_tools": [],
+    "eval_type": "contains",
+    "expected_steps": 1
+  },
+  {
+    "id": "easy_03",
+    "category": "easy",
+    "question": "Define what an API stands for in software engineering.",
+    "expected_answer": "Application Programming Interface",
+    "expected_tools": [],
+    "eval_type": "contains",
+    "expected_steps": 1
+  },
+  {
+    "id": "easy_04",
+    "category": "easy",
+    "question": "What is the capital of Germany?",
+    "expected_answer": "Berlin",
+    "expected_tools": [],
+    "eval_type": "contains",
+    "expected_steps": 1
+  },
+  {
+    "id": "easy_05",
+    "category": "easy",
+    "question": "Translate the greeting 'Hello, how are you?' into Spanish.",
+    "expected_answer": "Hola",
+    "expected_tools": [],
+    "eval_type": "contains",
+    "expected_steps": 1
+  },
+  {
+    "id": "easy_06",
+    "category": "easy",
+    "question": "Classify the sentiment of: 'I love this product, it works brilliantly!'",
+    "expected_answer": "positive",
+    "expected_tools": [],
+    "eval_type": "contains",
+    "expected_steps": 1
+  },
+  {
+    "id": "easy_07",
+    "category": "easy",
+    "question": "What is the capital city of Australia?",
+    "expected_answer": "Canberra",
+    "expected_tools": [],
+    "eval_type": "contains",
+    "expected_steps": 1
+  },
+  {
+    "id": "easy_08",
+    "category": "easy",
+    "question": "What does HTTP stand for?",
+    "expected_answer": "Hypertext Transfer Protocol",
+    "expected_tools": [],
+    "eval_type": "contains",
+    "expected_steps": 1
+  },
+  {
+    "id": "easy_09",
+    "category": "easy",
+    "question": "Extract the email address from this message: 'Please reach out at support@gateway.io for help.'",
+    "expected_answer": "support@gateway.io",
+    "expected_tools": [],
+    "eval_type": "contains",
+    "expected_steps": 1
+  },
+  {
+    "id": "easy_10",
+    "category": "easy",
+    "question": "What is the chemical symbol for Gold?",
+    "expected_answer": "Au",
+    "expected_tools": [],
+    "eval_type": "contains",
+    "expected_steps": 1
+  },
+  {
+    "id": "med_01",
+    "category": "medium",
+    "question": "Use the calculator tool to calculate: 125 * 84",
+    "expected_answer": "10500",
+    "expected_tools": ["calculator"],
+    "eval_type": "numeric",
+    "expected_steps": 2
+  },
+  {
+    "id": "med_02",
+    "category": "medium",
+    "question": "Look up our internal knowledge base: What was the reported Q3 revenue?",
+    "expected_answer": "$14.2 Million",
+    "expected_tools": ["knowledge_lookup"],
+    "eval_type": "contains",
+    "expected_steps": 2
+  },
+  {
+    "id": "med_03",
+    "category": "medium",
+    "question": "Calculate the arithmetic expression: (4500 / 15) + 380",
+    "expected_answer": "680",
+    "expected_tools": ["calculator"],
+    "eval_type": "numeric",
+    "expected_steps": 2
+  },
+  {
+    "id": "med_04",
+    "category": "medium",
+    "question": "Query the knowledge base to find the 90-day server uptime percentage of the European cluster.",
+    "expected_answer": "99.982%",
+    "expected_tools": ["knowledge_lookup"],
+    "eval_type": "contains",
+    "expected_steps": 2
+  },
+  {
+    "id": "med_05",
+    "category": "medium",
+    "question": "Compute using calculator: 2 ** 10",
+    "expected_answer": "1024",
+    "expected_tools": ["calculator"],
+    "eval_type": "numeric",
+    "expected_steps": 2
+  },
+  {
+    "id": "med_06",
+    "category": "medium",
+    "question": "Query the knowledge base for the pricing of llama_8b model.",
+    "expected_answer": "$0.05",
+    "expected_tools": ["knowledge_lookup"],
+    "eval_type": "contains",
+    "expected_steps": 2
+  },
+  {
+    "id": "med_07",
+    "category": "medium",
+    "question": "Calculate the total cost of buying 15 items at $34.50 each.",
+    "expected_answer": "517.5",
+    "expected_tools": ["calculator"],
+    "eval_type": "numeric",
+    "expected_steps": 2
+  },
+  {
+    "id": "med_08",
+    "category": "medium",
+    "question": "Look up in knowledge base: Who is the principal AI systems architect?",
+    "expected_answer": "Alex Chen",
+    "expected_tools": ["knowledge_lookup"],
+    "eval_type": "contains",
+    "expected_steps": 2
+  },
+  {
+    "id": "med_09",
+    "category": "medium",
+    "question": "Evaluate this math equation: 9876 - 4321 + 555",
+    "expected_answer": "6110",
+    "expected_tools": ["calculator"],
+    "eval_type": "numeric",
+    "expected_steps": 2
+  },
+  {
+    "id": "med_10",
+    "category": "medium",
+    "question": "Look up in the knowledge base: What is the average distance from Earth to Mars?",
+    "expected_answer": "225 million kilometers",
+    "expected_tools": ["knowledge_lookup"],
+    "eval_type": "contains",
+    "expected_steps": 2
+  },
+  {
+    "id": "hard_01",
+    "category": "hard",
+    "question": "Step by step, calculate the total token cost for processing 2,500,000 input tokens and 800,000 output tokens on a model priced at $0.59 per 1M input and $0.79 per 1M output tokens.",
+    "expected_answer": "2.107",
+    "expected_tools": ["calculator"],
+    "eval_type": "numeric",
+    "expected_steps": 3
+  },
+  {
+    "id": "hard_02",
+    "category": "hard",
+    "question": "Execute Python code using python_repl: calculate the sum of all prime numbers between 10 and 30.",
+    "expected_answer": "112",
+    "expected_tools": ["python_repl"],
+    "eval_type": "numeric",
+    "expected_steps": 2
+  },
+  {
+    "id": "hard_03",
+    "category": "hard",
+    "question": "First lookup the Q3 revenue in the knowledge base, then use the calculator to compute what a 20% tax deduction on that revenue would leave as net revenue.",
+    "expected_answer": "11.36",
+    "expected_tools": ["knowledge_lookup", "calculator"],
+    "eval_type": "numeric",
+    "expected_steps": 3
+  },
+  {
+    "id": "hard_04",
+    "category": "hard",
+    "question": "Write a python function `def fib(n):` using python_repl that computes the 12th Fibonacci number (where fib(1)=1, fib(2)=1). What is fib(12)?",
+    "expected_answer": "144",
+    "expected_tools": ["python_repl"],
+    "eval_type": "numeric",
+    "expected_steps": 2
+  },
+  {
+    "id": "hard_05",
+    "category": "hard",
+    "question": "Step by step reasoning: A server cluster has 8 nodes each handling 650 req/sec. If incoming traffic spikes by 35%, how many total requests per second must the cluster handle? Calculate the exact number.",
+    "expected_answer": "7020",
+    "expected_tools": ["calculator"],
+    "eval_type": "numeric",
+    "expected_steps": 3
+  },
+  {
+    "id": "hard_06",
+    "category": "hard",
+    "question": "Look up the population of Paris in the knowledge store, then calculate how many people that would be if the population grew by 15%.",
+    "expected_answer": "2.415",
+    "expected_tools": ["knowledge_lookup", "calculator"],
+    "eval_type": "numeric",
+    "expected_steps": 3
+  },
+  {
+    "id": "hard_07",
+    "category": "hard",
+    "question": "Using python_repl, count how many occurrences of the letter 'e' exist in this string: 'distributed asynchronous microservices architecture'.",
+    "expected_answer": "7",
+    "expected_tools": ["python_repl"],
+    "eval_type": "numeric",
+    "expected_steps": 2
+  },
+  {
+    "id": "hard_08",
+    "category": "hard",
+    "question": "Solve this multi-step equation: If x = (144 / 12) + 25, and y = x * 3 - 15, what is the value of y?",
+    "expected_answer": "96",
+    "expected_tools": ["calculator"],
+    "eval_type": "numeric",
+    "expected_steps": 3
+  },
+  {
+    "id": "hard_09",
+    "category": "hard",
+    "question": "Look up the pricing for llama_70b in the knowledge base, then calculate the cost in USD of 5 million input tokens.",
+    "expected_answer": "2.95",
+    "expected_tools": ["knowledge_lookup", "calculator"],
+    "eval_type": "numeric",
+    "expected_steps": 3
+  },
+  {
+    "id": "hard_10",
+    "category": "hard",
+    "question": "Step by step logic & code analysis: Analyze a binary search tree with elements [3, 7, 9, 12, 18, 24, 30]. What is the maximum number of comparisons needed to find or confirm absence of any element?",
+    "expected_answer": "3",
+    "expected_tools": [],
+    "eval_type": "numeric",
+    "expected_steps": 2
+  }
+]
+

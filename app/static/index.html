@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KRONOS | Smart AI Gateway Suite</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --bg-base: #F4F3EF;          /* Warm Swiss off-white */
+      --surface-white: #FFFFFF;     /* Crisp white container */
+      --surface-subtle: #EBEAE5;    /* Soft muted grey */
+      --surface-card: #FFFFFF;
+      --surface-dark: #111111;      /* Deep black surface */
+      --surface-dark-card: #181818;
+      --accent-lime: #5CE65B;       /* Electric lime-green highlight */
+      --accent-lime-dim: rgba(92, 230, 91, 0.15);
+      
+      --text-main: #111111;
+      --text-muted: #737373;
+      --text-light: #A3A3A3;
+      --text-on-dark: #F4F3EF;
+      --text-on-dark-muted: #8E8E8E;
+      
+      --border-subtle: #E5E4DE;
+      --border-dark: #262626;
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 24px;
+      
+      --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.02);
+      --shadow-lift: 0 10px 24px -4px rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      overflow-x: hidden;
+    }
+
+    /* SLIM ICON SIDEBAR */
+    aside.sidebar {
+      width: 76px;
+      background-color: var(--surface-dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.75rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-right: 1px solid var(--border-dark);
+    }
+
+    .sidebar-brand {
+      width: 44px;
+      height: 44px;
+      background: var(--surface-dark-card);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      cursor: pointer;
+    }
+
+    .brand-dot {
+      width: 14px;
+      height: 14px;
+      background: var(--accent-lime);
+      border-radius: 4px;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .sidebar-brand:hover .brand-dot {
+      transform: rotate(45deg) scale(1.1);
+    }
+
+    .nav-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: 100%;
+      align-items: center;
+    }
+
+    .nav-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-on-dark-muted);
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      position: relative;
+    }
+
+    .nav-btn:hover {
+      color: var(--text-on-dark);
+      background: var(--surface-dark-card);
+      border-color: var(--border-dark);
+    }
+
+    .nav-btn.active {
+      color: var(--surface-dark);
+      background: var(--accent-lime);
+      border-color: var(--accent-lime);
+    }
+
+    .sidebar-footer {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .status-badge-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-lime);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent-lime);
+    }
+
+    /* MAIN VIEWPORT */
+    main.viewport {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 0 2.5rem 3.5rem 2.5rem;
+      max-width: 1600px;
+      margin: 0 auto;
+      width: calc(100% - 76px);
+    }
+
+    /* TOP NAVIGATION */
+    header.top-nav {
+      height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 2rem;
+    }
+
+    .nav-title-group h1 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--surface-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .nav-subtitle {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-top: 0.15rem;
+    }
+
+    .endpoint-tabs {
+      background: var(--surface-subtle);
+      border-radius: 999px;
+      padding: 4px;
+      display: flex;
+      gap: 3px;
+    }
+
+    .endpoint-tab-btn {
+      padding: 7px 16px;
+      border-radius: 999px;
+      font-size: 0.775rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.15s ease;
+    }
+
+    .endpoint-tab-btn.active {
+      background: var(--surface-white);
+      color: var(--surface-dark);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .btn-action {
+      background: var(--surface-dark);
+      color: var(--text-on-dark);
+      border: 1px solid var(--surface-dark);
+      padding: 0.65rem 1.25rem;
+      border-radius: var(--radius-md);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.15s ease;
+    }
+
+    .btn-action:hover {
+      background: #222222;
+      border-color: #222222;
+      transform: translateY(-1px);
+    }
+
+    .btn-action.lime-accent {
+      background: var(--accent-lime);
+      color: var(--surface-dark);
+      border-color: var(--accent-lime);
+      font-weight: 700;
+    }
+
+    .btn-action.lime-accent:hover {
+      background: #50d24f;
+      border-color: #50d24f;
+    }
+
+    .btn-outline {
+      background: var(--surface-white);
+      color: var(--surface-dark);
+      border: 1px solid var(--border-subtle);
+      padding: 0.65rem 1.15rem;
+      border-radius: var(--radius-md);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.15s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--surface-subtle);
+    }
+
+    .btn-danger-outline {
+      background: #FFF1F2;
+      color: #E11D48;
+      border: 1px solid #FECDD3;
+      padding: 0.55rem 1rem;
+      border-radius: var(--radius-md);
+      font-size: 0.775rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.15s ease;
+    }
+
+    .btn-danger-outline:hover {
+      background: #FFE4E6;
+      border-color: #FDA4AF;
+    }
+
+    /* CARD PANELS */
+    .card-panel {
+      background: var(--surface-white);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .card-panel-dark {
+      background: var(--surface-dark);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-xl);
+      padding: 1.75rem;
+      color: var(--text-on-dark);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .panel-header h2 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .endpoint-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.725rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+    }
+
+    .method-post {
+      background: rgba(92, 230, 91, 0.15);
+      color: #15803d;
+      border: 1px solid rgba(92, 230, 91, 0.35);
+    }
+
+    .method-get {
+      background: rgba(59, 130, 246, 0.15);
+      color: #2563EB;
+      border: 1px solid rgba(59, 130, 246, 0.35);
+    }
+
+    /* TAB VIEWS */
+    .view-content {
+      display: none;
+    }
+
+    .view-content.active-view {
+      display: block;
+    }
+
+    /* KPI METRICS */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 1200px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .kpi-card {
+      background: var(--surface-white);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-subtle);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .kpi-card.hero-card {
+      background: var(--surface-dark);
+      color: var(--text-on-dark);
+      border-color: var(--border-dark);
+    }
+
+    .kpi-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .kpi-title {
+      font-size: 0.725rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .kpi-card.hero-card .kpi-title {
+      color: var(--text-on-dark-muted);
+    }
+
+    .kpi-icon-pill {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      background: var(--surface-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--surface-dark);
+    }
+
+    .kpi-card.hero-card .kpi-icon-pill {
+      background: var(--surface-dark-card);
+      color: var(--accent-lime);
+      border: 1px solid var(--border-dark);
+    }
+
+    .kpi-value {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-family: 'JetBrains Mono', monospace;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+
+    .kpi-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.775rem;
+      font-weight: 500;
+    }
+
+    .tag-delta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      padding: 2px 7px;
+      border-radius: 999px;
+      font-size: 0.725rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .tag-delta.positive {
+      background: var(--accent-lime-dim);
+      color: #15803d;
+    }
+
+    .kpi-card.hero-card .tag-delta.positive {
+      background: rgba(92, 230, 91, 0.2);
+      color: var(--accent-lime);
+    }
+
+    /* SPLIT TESTING LAYOUT */
+    .dashboard-split {
+      display: grid;
+      grid-template-columns: 5.5fr 6.5fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 1100px) {
+      .dashboard-split { grid-template-columns: 1fr; }
+    }
+
+    .dark-textarea {
+      width: 100%;
+      height: 110px;
+      background: var(--surface-dark-card);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      color: var(--text-on-dark);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.825rem;
+      line-height: 1.5;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+
+    .dark-textarea:focus {
+      border-color: var(--accent-lime);
+    }
+
+    .playground-presets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1rem;
+    }
+
+    .chip-btn {
+      background: var(--surface-dark-card);
+      border: 1px solid var(--border-dark);
+      color: var(--text-on-dark-muted);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.725rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .chip-btn:hover {
+      color: var(--text-on-dark);
+      border-color: #404040;
+    }
+
+    .chip-btn.active-preset {
+      border-color: var(--accent-lime);
+      color: var(--accent-lime);
+      background: rgba(92, 230, 91, 0.08);
+    }
+
+    .form-row {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+
+    .form-input, .route-spec-selector {
+      background: var(--surface-dark-card);
+      color: var(--text-on-dark);
+      border: 1px solid var(--border-dark);
+      padding: 0.6rem 0.9rem;
+      border-radius: var(--radius-md);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      outline: none;
+      flex: 1;
+    }
+
+    .form-input:focus, .route-spec-selector:focus {
+      border-color: var(--accent-lime);
+    }
+
+    .response-content-box {
+      flex: 1;
+      background: #FAF9F6;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.825rem;
+      color: var(--surface-dark);
+      line-height: 1.6;
+      min-height: 250px;
+      max-height: 400px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .telemetry-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .telemetry-stat {
+      background: var(--surface-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.6rem 0.8rem;
+    }
+
+    .telemetry-stat-label {
+      font-size: 0.675rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .telemetry-stat-val {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--surface-dark);
+      font-family: 'JetBrains Mono', monospace;
+      margin-top: 0.2rem;
+    }
+
+    .pill-model {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .pill-model.cheap {
+      background: rgba(92, 230, 91, 0.15);
+      color: #5CE65B;
+      border: 1px solid rgba(92, 230, 91, 0.3);
+    }
+
+    .pill-model.strong {
+      background: rgba(139, 92, 246, 0.15);
+      color: #A78BFA;
+      border: 1px solid rgba(139, 92, 246, 0.3);
+    }
+
+    .decision-strip {
+      background: var(--surface-dark-card);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 0.9rem 1.1rem;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .decision-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .decision-explanation {
+      font-size: 0.75rem;
+      color: var(--text-on-dark-muted);
+      font-family: 'JetBrains Mono', monospace;
+      line-height: 1.4;
+    }
+
+    /* TABLE */
+    .swiss-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .swiss-table th {
+      padding: 0.85rem 1rem;
+      font-size: 0.725rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .swiss-table td {
+      padding: 0.9rem 1rem;
+      font-size: 0.8125rem;
+      border-bottom: 1px solid #F0EFEA;
+      color: var(--surface-dark);
+      font-weight: 500;
+    }
+
+    .swiss-table tr:hover td {
+      background-color: #FAF9F6;
+    }
+
+    .mono-cell {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.775rem;
+    }
+
+    .badge-tag-model {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: var(--surface-subtle);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.725rem;
+      font-weight: 600;
+      color: var(--surface-dark);
+    }
+
+    .badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 2px 7px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .badge-status.success {
+      background: rgba(34, 197, 94, 0.12);
+      color: #16A34A;
+    }
+
+    .badge-status.cached {
+      background: rgba(92, 230, 91, 0.2);
+      color: #15803d;
+    }
+
+    .badge-status.error {
+      background: rgba(239, 68, 68, 0.12);
+      color: #DC2626;
+    }
+
+    /* SYSTEM HEALTH STATUS BADGES */
+    .health-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .health-item {
+      background: var(--surface-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .health-label {
+      font-size: 0.725rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+    }
+
+    .health-val {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--surface-dark);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* TOAST */
+    #status-toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--surface-dark);
+      color: var(--text-on-dark);
+      padding: 0.85rem 1.4rem;
+      border-radius: var(--radius-md);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      display: none;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      border: 1px solid var(--border-dark);
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SLIM ICON SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand" title="Kronos Gateway" onclick="switchView('overview')">
+      <div class="brand-dot"></div>
+    </div>
+
+    <nav class="nav-stack">
+      <button class="nav-btn active" id="btn-nav-overview" onclick="switchView('overview')" title="Dashboard Overview">
+        <i data-lucide="layout-grid" style="width:20px; height:20px;"></i>
+      </button>
+      <button class="nav-btn" id="btn-nav-completions" onclick="switchView('completions')" title="POST /v1/chat/completions">
+        <i data-lucide="cpu" style="width:20px; height:20px;"></i>
+      </button>
+      <button class="nav-btn" id="btn-nav-simplified" onclick="switchView('simplified')" title="POST /v1/chat (Simplified)">
+        <i data-lucide="message-square" style="width:20px; height:20px;"></i>
+      </button>
+      <button class="nav-btn" id="btn-nav-metrics" onclick="switchView('metrics')" title="GET /v1/metrics (LLMOps)">
+        <i data-lucide="bar-chart-2" style="width:20px; height:20px;"></i>
+      </button>
+      <button class="nav-btn" id="btn-nav-logs" onclick="switchView('logs')" title="GET /v1/logs (Ledger)">
+        <i data-lucide="database" style="width:20px; height:20px;"></i>
+      </button>
+      <button class="nav-btn" id="btn-nav-system" onclick="switchView('system')" title="GET /health & Cache Control">
+        <i data-lucide="shield-check" style="width:20px; height:20px;"></i>
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="status-badge-dot" title="Gateway Online (127.0.0.1:8000)"></div>
+      <button class="nav-btn" onclick="fetchLiveTelemetry()" title="Refresh All Data">
+        <i data-lucide="refresh-cw" style="width:18px; height:18px;"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN VIEWPORT -->
+  <main class="viewport">
+    
+    <!-- TOP NAVIGATION & ENDPOINT SELECTOR -->
+    <header class="top-nav">
+      <div class="nav-title-group">
+        <h1 id="view-title">
+          Gateway Overview
+          <span style="font-size: 0.75rem; font-weight: 700; background: var(--accent-lime); color: var(--surface-dark); padding: 2px 8px; border-radius: 999px;">v0.1.0</span>
+        </h1>
+        <div class="nav-subtitle" id="view-subtitle">Interactive playground and operations console for all Gateway API endpoints</div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <!-- Endpoint Switcher Tabs -->
+        <div class="endpoint-tabs">
+          <button class="endpoint-tab-btn active" id="tab-overview" onclick="switchView('overview')">
+            <i data-lucide="layout-grid" style="width:14px; height:14px;"></i> Overview
+          </button>
+          <button class="endpoint-tab-btn" id="tab-completions" onclick="switchView('completions')">
+            <span class="endpoint-badge method-post">POST</span> /v1/chat/completions
+          </button>
+          <button class="endpoint-tab-btn" id="tab-simplified" onclick="switchView('simplified')">
+            <span class="endpoint-badge method-post">POST</span> /v1/chat
+          </button>
+          <button class="endpoint-tab-btn" id="tab-metrics" onclick="switchView('metrics')">
+            <span class="endpoint-badge method-get">GET</span> /v1/metrics
+          </button>
+          <button class="endpoint-tab-btn" id="tab-logs" onclick="switchView('logs')">
+            <span class="endpoint-badge method-get">GET</span> /v1/logs
+          </button>
+          <button class="endpoint-tab-btn" id="tab-system" onclick="switchView('system')">
+            <span class="endpoint-badge method-get">GET</span> /health
+          </button>
+        </div>
+
+        <button class="btn-outline" onclick="window.open('/docs', '_blank')">
+          <i data-lucide="external-link" style="width:15px; height:15px;"></i>
+          Swagger Docs
+        </button>
+      </div>
+    </header>
+
+    <!-- =========================================================================
+         VIEW 1: OVERVIEW DASHBOARD
+         ========================================================================= -->
+    <div id="view-overview" class="view-content active-view">
+      <!-- KPI GRID -->
+      <section class="kpi-grid">
+        <div class="kpi-card hero-card">
+          <div class="kpi-header">
+            <span class="kpi-title">TOTAL ROUTED INFERENCE</span>
+            <div class="kpi-icon-pill"><i data-lucide="activity" style="width:16px; height:16px;"></i></div>
+          </div>
+          <div>
+            <div class="kpi-value" id="kpi-requests">0</div>
+            <div class="kpi-meta">
+              <span class="tag-delta positive" id="kpi-success-rate">&uarr; 100%</span>
+              <span class="meta-subtext">success rate</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">TOKEN EXPENDITURE</span>
+            <div class="kpi-icon-pill"><i data-lucide="credit-card" style="width:16px; height:16px;"></i></div>
+          </div>
+          <div>
+            <div class="kpi-value" id="kpi-cost">$0.0000</div>
+            <div class="kpi-meta">
+              <span class="tag-delta positive" id="kpi-savings">65% saved</span>
+              <span class="meta-subtext">vs static frontier</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">AVG SYSTEM LATENCY</span>
+            <div class="kpi-icon-pill"><i data-lucide="timer" style="width:16px; height:16px;"></i></div>
+          </div>
+          <div>
+            <div class="kpi-value" id="kpi-latency">0.0 <span style="font-size: 1.1rem; font-weight: 600;">ms</span></div>
+            <div class="kpi-meta">
+              <span class="tag-delta positive" id="kpi-p95">&darr; fast</span>
+              <span class="meta-subtext">gateway overhead &lt; 2ms</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">CACHE EFFICIENCY</span>
+            <div class="kpi-icon-pill"><i data-lucide="hard-drive" style="width:16px; height:16px;"></i></div>
+          </div>
+          <div>
+            <div class="kpi-value" id="kpi-cache-rate">0.0%</div>
+            <div class="kpi-meta">
+              <span class="tag-delta positive" id="kpi-cache-hits">0 hits</span>
+              <span class="meta-subtext">at $0.00 / 0ms</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUICK TEST SPLIT -->
+      <section class="dashboard-split">
+        <div class="card-panel-dark">
+          <div class="panel-header">
+            <div>
+              <h2 style="color: var(--text-on-dark);"><i data-lucide="zap" style="width:18px; height:18px; color: var(--accent-lime);"></i> Quick Auto-Router Test</h2>
+              <div style="font-size: 0.75rem; color: var(--text-on-dark-muted); margin-top: 0.15rem;">Live multi-signal heuristic complexity tester</div>
+            </div>
+            <span style="font-size: 0.7rem; font-weight: 700; color: var(--accent-lime); font-family: 'JetBrains Mono', monospace;">LIVE GATEWAY</span>
+          </div>
+
+          <div class="playground-presets">
+            <button class="chip-btn active-preset" onclick="setQuickPreset('What is the capital of France?')">Paris Factoid</button>
+            <button class="chip-btn" onclick="setQuickPreset('Calculate 25 * 40 step by step')">Step Math</button>
+            <button class="chip-btn" onclick="setQuickPreset('Write an O(n) Python function `def is_prime(n):` with edge cases')">Python Prime</button>
+            <button class="chip-btn" onclick="setQuickPreset('Explain event-driven microservices architecture, circuit breakers, and sharding')">Architecture</button>
+          </div>
+
+          <textarea id="quick-prompt" class="dark-textarea" placeholder="Enter query to test Auto-Routing..."></textarea>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1rem;">
+            <select id="quick-policy" class="route-spec-selector" style="max-width: 220px;">
+              <option value="auto">Auto-Router (Dynamic)</option>
+              <option value="always_cheap">Force Cheap (20B)</option>
+              <option value="always_strong">Force Strong (120B)</option>
+            </select>
+
+            <button class="btn-action lime-accent" id="quick-dispatch-btn" onclick="executeQuickInference()">
+              <i data-lucide="play" style="width:14px; height:14px; fill: currentColor;"></i>
+              Execute Dispatch
+            </button>
+          </div>
+
+          <div class="decision-strip">
+            <div class="decision-row">
+              <span style="font-size: 0.725rem; font-weight: 700; color: var(--text-on-dark-muted);">ROUTING DECISION</span>
+              <span class="pill-model cheap" id="quick-res-pill">openai/gpt-oss-20b</span>
+            </div>
+            <div class="decision-explanation" id="quick-res-explanation">
+              Awaiting dispatch...
+            </div>
+          </div>
+        </div>
+
+        <!-- Model Output Box -->
+        <div class="card-panel" style="display:flex; flex-direction:column;">
+          <div class="panel-header">
+            <div>
+              <h2><i data-lucide="message-square" style="width:18px; height:18px;"></i> Model Output (Returned to User)</h2>
+              <div style="font-size: 0.775rem; color: var(--text-muted); margin-top: 0.15rem;">Exact completion payload delivered by the gateway</div>
+            </div>
+            <div style="display:flex; gap:0.5rem; align-items:center;">
+              <span class="badge-status cached" id="quick-meta-cache" style="display:none;">⚡ CACHED</span>
+              <span class="badge-tag-model" id="quick-meta-model">openai/gpt-oss-20b</span>
+            </div>
+          </div>
+
+          <div class="response-content-box" id="quick-response-box">The capital of France is Paris.</div>
+
+          <div class="telemetry-row">
+            <div class="telemetry-stat">
+              <div class="telemetry-stat-label">Latency</div>
+              <div class="telemetry-stat-val" id="quick-meta-latency">14.2ms</div>
+            </div>
+            <div class="telemetry-stat">
+              <div class="telemetry-stat-label">Cost</div>
+              <div class="telemetry-stat-val" id="quick-meta-cost">$0.000008</div>
+            </div>
+            <div class="telemetry-stat">
+              <div class="telemetry-stat-label">Tokens</div>
+              <div class="telemetry-stat-val" id="quick-meta-tokens">26</div>
+            </div>
+            <div class="telemetry-stat">
+              <div class="telemetry-stat-label">Score</div>
+              <div class="telemetry-stat-val" id="quick-meta-score">0.00</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RECENT ACTIVITY TABLE PREVIEW -->
+      <section class="card-panel">
+        <div class="panel-header">
+          <div>
+            <h2><i data-lucide="database" style="width:18px; height:18px;"></i> Recent Gateway Requests</h2>
+            <div style="font-size: 0.775rem; color: var(--text-muted); margin-top: 0.15rem;">Latest logged requests from SQLite audit ledger</div>
+          </div>
+          <button class="btn-outline" onclick="switchView('logs')">
+            View All Logs <i data-lucide="arrow-right" style="width:14px; height:14px;"></i>
+          </button>
+        </div>
+
+        <div style="overflow-x:auto;">
+          <table class="swiss-table">
+            <thead>
+              <tr>
+                <th>Timestamp</th>
+                <th>Endpoint</th>
+                <th>Model</th>
+                <th>Score</th>
+                <th>Tokens</th>
+                <th>Latency</th>
+                <th>Cost (USD)</th>
+                <th>Cache</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="overview-ledger-body">
+              <tr><td colspan="9" style="text-align:center; color: var(--text-muted);">Loading ledger...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <!-- =========================================================================
+         VIEW 2: POST /v1/chat/completions (FULL OPENAI SPEC)
+         ========================================================================= -->
+    <div id="view-completions" class="view-content">
+      <div class="dashboard-split">
+        <div class="card-panel-dark">
+          <div class="panel-header">
+            <div>
+              <h2 style="color: var(--text-on-dark);">
+                <span class="endpoint-badge method-post">POST</span> /v1/chat/completions
+              </h2>
+              <div style="font-size: 0.75rem; color: var(--text-on-dark-muted); margin-top: 0.15rem;">OpenAI-compatible chat completion payload with metadata</div>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 0.85rem;">
+            <label style="font-size: 0.725rem; font-weight:700; color: var(--text-on-dark-muted); display:block; margin-bottom: 0.35rem;">SYSTEM PROMPT</label>
+            <input type="text" id="cmpl-system" class="form-input" style="width:100%;" value="You are a helpful, concise AI engineering assistant.">
+          </div>
+
+          <div style="margin-bottom: 0.85rem;">
+            <label style="font-size: 0.725rem; font-weight:700; color: var(--text-on-dark-muted); display:block; margin-bottom: 0.35rem;">USER MESSAGE</label>
+            <textarea id="cmpl-user-prompt" class="dark-textarea" style="height: 100px;">Explain distributed consensus (Raft) and why leader election needs a randomized timeout.</textarea>
+          </div>
+
+          <div class="form-row">
+            <div style="flex: 1;">
+              <label style="font-size: 0.725rem; font-weight:700; color: var(--text-on-dark-muted); display:block; margin-bottom: 0.35rem;">POLICY</label>
+              <select id="cmpl-policy" class="route-spec-selector" style="width:100%;">
+                <option value="auto">Auto-Router (Dynamic)</option>
+                <option value="always_cheap">Forced Cheap (20B)</option>
+                <option value="always_strong">Forced Strong (120B)</option>
+              </select>
+            </div>
+
+            <div style="flex: 1;">
+              <label style="font-size: 0.725rem; font-weight:700; color: var(--text-on-dark-muted); display:block; margin-bottom: 0.35rem;">TEMPERATURE</label>
+              <input type="number" id="cmpl-temp" class="form-input" style="width:100%;" value="0.7" step="0.1" min="0" max="2">
+            </div>
+
+            <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding-top: 1rem;">
+              <label style="font-size: 0.725rem; font-weight:700; color: var(--text-on-dark-muted); margin-bottom: 0.25rem;">CACHE</label>
+              <input type="checkbox" id="cmpl-use-cache" checked style="width: 18px; height: 18px; accent-color: var(--accent-lime); cursor: pointer;">
+            </div>
+          </div>
+
+          <div style="margin-top: 1rem;">
+            <button class="btn-action lime-accent" id="cmpl-dispatch-btn" onclick="executeFullCompletion()" style="width:100%; justify-content:center;">
+              <i data-lucide="send" style="width:15px; height:15px;"></i> Dispatch /v1/chat/completions
+            </button>
+          </div>
+        </div>
+
+        <div class="card-panel" style="display:flex; flex-direction:column;">
+          <div class="panel-header">
+            <div>
+              <h2>JSON Response & Gateway Metadata</h2>
+              <div style="font-size: 0.775rem; color: var(--text-muted); margin-top: 0.15rem;">Live response with auto-routing decisions and cost accounting</div>
+            </div>
+          </div>
+
+          <div class="response-content-box" id="cmpl-json-box">// Dispatch request to view raw JSON response...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         VIEW 3: POST /v1/chat (SIMPLIFIED CHAT)
+         ========================================================================= -->
+    <div id="view-simplified" class="view-content">
+      <div class="dashboard-split">
+        <div class="card-panel-dark">
+          <div class="panel-header">
+            <div>
+              <h2 style="color: var(--text-on-dark);">
+                <span class="endpoint-badge method-post">POST</span> /v1/chat
+              </h2>
+              <div style="font-size: 0.75rem; color: var(--text-on-dark-muted); margin-top: 0.15rem;">Convenience single-prompt endpoint for quick client integrations</div>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 1rem;">
+            <label style="font-size: 0.725rem; font-weight:700; color: var(--text-on-dark-muted); display:block; margin-bottom: 0.35rem;">PROMPT STRING</label>
+            <textarea id="sim-prompt" class="dark-textarea" style="height: 120px;">What is the time complexity of binary search?</textarea>
+          </div>
+
+          <div class="form-row">
+            <div style="flex: 1;">
+              <label style="font-size: 0.725rem; font-weight:700; color: var(--text-on-dark-muted); display:block; margin-bottom: 0.35rem;">POLICY</label>
+              <select id="sim-policy" class="route-spec-selector" style="width:100%;">
+                <option value="auto">Auto-Router (Dynamic)</option>
+                <option value="always_cheap">always_cheap (20B)</option>
+                <option value="always_strong">always_strong (120B)</option>
+              </select>
+            </div>
+
+            <div style="flex: 1;">
+              <label style="font-size: 0.725rem; font-weight:700; color: var(--text-on-dark-muted); display:block; margin-bottom: 0.35rem;">MODEL PARAMETER</label>
+              <input type="text" id="sim-model" class="form-input" style="width:100%;" value="auto">
+            </div>
+          </div>
+
+          <button class="btn-action lime-accent" id="sim-dispatch-btn" onclick="executeSimplifiedChat()" style="width:100%; justify-content:center;">
+            <i data-lucide="play" style="width:15px; height:15px; fill: currentColor;"></i> Execute /v1/chat
+          </button>
+        </div>
+
+        <div class="card-panel" style="display:flex; flex-direction:column;">
+          <div class="panel-header">
+            <div>
+              <h2>SimplifiedChatResponse Output</h2>
+              <div style="font-size: 0.775rem; color: var(--text-muted); margin-top: 0.15rem;">Clean single-reply object returned directly to apps</div>
+            </div>
+            <span class="badge-tag-model" id="sim-model-tag">--</span>
+          </div>
+
+          <div class="response-content-box" id="sim-reply-box">// Response reply string will appear here...</div>
+
+          <div class="telemetry-row">
+            <div class="telemetry-stat">
+              <div class="telemetry-stat-label">Model Used</div>
+              <div class="telemetry-stat-val" id="sim-tele-model" style="font-size: 0.75rem;">--</div>
+            </div>
+            <div class="telemetry-stat">
+              <div class="telemetry-stat-label">Latency</div>
+              <div class="telemetry-stat-val" id="sim-tele-latency">--</div>
+            </div>
+            <div class="telemetry-stat">
+              <div class="telemetry-stat-label">Cost USD</div>
+              <div class="telemetry-stat-val" id="sim-tele-cost">--</div>
+            </div>
+            <div class="telemetry-stat">
+              <div class="telemetry-stat-label">Cache Hit</div>
+              <div class="telemetry-stat-val" id="sim-tele-cache">--</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         VIEW 4: GET /v1/metrics (LLMOps)
+         ========================================================================= -->
+    <div id="view-metrics" class="view-content">
+      <div class="card-panel" style="margin-bottom: 1.5rem;">
+        <div class="panel-header">
+          <div>
+            <h2><span class="endpoint-badge method-get">GET</span> /v1/metrics &bull; Aggregated LLMOps Intelligence</h2>
+            <div style="font-size: 0.775rem; color: var(--text-muted); margin-top: 0.15rem;">Live operational metrics calculated across all lifetime gateway logs</div>
+          </div>
+          <button class="btn-action lime-accent" onclick="fetchLiveTelemetry()">
+            <i data-lucide="refresh-cw" style="width:14px; height:14px;"></i> Refresh Metrics
+          </button>
+        </div>
+
+        <div class="kpi-grid" style="margin-bottom: 1.5rem;">
+          <div class="kpi-card">
+            <div class="kpi-header"><span class="kpi-title">TOTAL REQUESTS</span></div>
+            <div class="kpi-value" id="met-total-requests">0</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-header"><span class="kpi-title">TOTAL SPEND (USD)</span></div>
+            <div class="kpi-value" id="met-total-cost">$0.0000</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-header"><span class="kpi-title">AVG LATENCY</span></div>
+            <div class="kpi-value" id="met-avg-latency">0.0ms</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-header"><span class="kpi-title">CACHE HIT RATE</span></div>
+            <div class="kpi-value" id="met-cache-rate">0.0%</div>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+          <div style="background: var(--surface-subtle); border-radius: var(--radius-md); padding: 1.25rem;">
+            <h3 style="font-size: 0.875rem; font-weight:800; margin-bottom: 0.75rem;">Model Volume & Cost Allocation</h3>
+            <div id="met-model-breakdown" style="display:flex; flex-direction:column; gap: 0.75rem; font-size: 0.8125rem;">
+              <!-- Dynamic model list -->
+            </div>
+          </div>
+
+          <div style="background: var(--surface-subtle); border-radius: var(--radius-md); padding: 1.25rem;">
+            <h3 style="font-size: 0.875rem; font-weight:800; margin-bottom: 0.75rem;">Raw JSON Payload from /v1/metrics</h3>
+            <pre id="met-raw-json" style="font-family:'JetBrains Mono', monospace; font-size: 0.75rem; max-height: 250px; overflow-y:auto; color: var(--surface-dark);"></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         VIEW 5: GET /v1/logs (REQUEST AUDIT LEDGER)
+         ========================================================================= -->
+    <div id="view-logs" class="view-content">
+      <div class="card-panel">
+        <div class="panel-header">
+          <div>
+            <h2><span class="endpoint-badge method-get">GET</span> /v1/logs &bull; Request Audit Ledger</h2>
+            <div style="font-size: 0.775rem; color: var(--text-muted); margin-top: 0.15rem;">Paginated trace audit table with token accounting, latency, and routing reasons</div>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; align-items: center;">
+            <select id="logs-limit-select" class="form-input" style="padding: 0.4rem 0.8rem;" onchange="fetchLiveTelemetry()">
+              <option value="20">Limit: 20 rows</option>
+              <option value="50" selected>Limit: 50 rows</option>
+              <option value="100">Limit: 100 rows</option>
+              <option value="200">Limit: 200 rows</option>
+            </select>
+            <button class="btn-outline" onclick="fetchLiveTelemetry()">
+              <i data-lucide="refresh-cw" style="width:14px; height:14px;"></i> Refresh Ledger
+            </button>
+          </div>
+        </div>
+
+        <div style="overflow-x:auto;">
+          <table class="swiss-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Timestamp</th>
+                <th>Endpoint</th>
+                <th>Requested</th>
+                <th>Routed Model</th>
+                <th>Score</th>
+                <th>Reason</th>
+                <th>In / Out Tokens</th>
+                <th>Latency</th>
+                <th>Cost (USD)</th>
+                <th>Cache</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="logs-table-body">
+              <tr><td colspan="12" style="text-align:center; color: var(--text-muted);">Loading logs...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         VIEW 6: SYSTEM HEALTH & CACHE MANAGEMENT
+         ========================================================================= -->
+    <div id="view-system" class="view-content">
+      <div class="dashboard-split">
+        <!-- GET /health -->
+        <div class="card-panel">
+          <div class="panel-header">
+            <div>
+              <h2><span class="endpoint-badge method-get">GET</span> /health &bull; System Status</h2>
+              <div style="font-size: 0.775rem; color: var(--text-muted); margin-top: 0.15rem;">Readiness, model configuration, and active provider mode</div>
+            </div>
+            <button class="btn-outline" onclick="fetchHealth()">
+              <i data-lucide="refresh-cw" style="width:14px; height:14px;"></i> Check Health
+            </button>
+          </div>
+
+          <div class="health-grid">
+            <div class="health-item">
+              <div class="health-label">System Status</div>
+              <div class="health-val" id="sys-status" style="color: #16A34A;">HEALTHY</div>
+            </div>
+            <div class="health-item">
+              <div class="health-label">Provider Mode</div>
+              <div class="health-val" id="sys-provider">groq</div>
+            </div>
+            <div class="health-item">
+              <div class="health-label">Environment</div>
+              <div class="health-val" id="sys-env">development</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.25rem;">
+            <div class="health-item" style="margin-bottom: 0.75rem;">
+              <div class="health-label">Cheap Tier Model</div>
+              <div class="health-val" id="sys-cheap" style="font-size: 0.95rem;">openai/gpt-oss-20b</div>
+            </div>
+            <div class="health-item">
+              <div class="health-label">Strong Tier Model</div>
+              <div class="health-val" id="sys-strong" style="font-size: 0.95rem;">openai/gpt-oss-120b</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- POST /v1/cache/clear -->
+        <div class="card-panel-dark">
+          <div class="panel-header">
+            <div>
+              <h2 style="color: var(--text-on-dark);">
+                <span class="endpoint-badge method-post">POST</span> /v1/cache/clear
+              </h2>
+              <div style="font-size: 0.75rem; color: var(--text-on-dark-muted); margin-top: 0.15rem;">Cache Invalidation & Memory Management</div>
+            </div>
+          </div>
+
+          <p style="font-size: 0.8125rem; color: var(--text-on-dark-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+            The gateway maintains an in-memory SHA-256 keyed TTL response cache. Triggering this endpoint completely purges all cached model completions, forcing subsequent requests to invoke the primary LLM provider.
+          </p>
+
+          <div style="background: var(--surface-dark-card); border: 1px solid var(--border-dark); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem;">
+            <div style="font-size: 0.75rem; font-weight:700; color: var(--accent-lime); margin-bottom: 0.35rem;">CACHE STATUS</div>
+            <div style="font-size: 1.15rem; font-weight:800; font-family:'JetBrains Mono', monospace;" id="sys-cache-status-text">Active &bull; Operational</div>
+          </div>
+
+          <button class="btn-danger-outline" onclick="clearGatewayCache()" style="padding: 0.75rem 1.25rem; font-size: 0.825rem;">
+            <i data-lucide="trash-2" style="width:16px; height:16px;"></i>
+            Purge Response Cache Now
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Toast Notification -->
+  <div id="status-toast">
+    <div class="status-badge-dot"></div>
+    <span id="toast-message">Telemetry Synchronized</span>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    // VIEW ROUTING
+    const views = {
+      overview: { title: "Gateway Overview", sub: "Interactive playground and operations console for all Gateway API endpoints" },
+      completions: { title: "POST /v1/chat/completions", sub: "OpenAI-compatible chat completion payload with metadata and routing explanation" },
+      simplified: { title: "POST /v1/chat", sub: "Convenience single-prompt endpoint for lightweight client applications" },
+      metrics: { title: "GET /v1/metrics", sub: "Aggregated LLMOps operational metrics (costs, latencies, cache rates, routing split)" },
+      logs: { title: "GET /v1/logs", sub: "Detailed audit trail of all gateway executions stored in SQLite database" },
+      system: { title: "System & Cache Control", sub: "Health check /health and cache invalidation /v1/cache/clear" }
+    };
+
+    function switchView(viewName) {
+      document.querySelectorAll('.view-content').forEach(el => el.classList.remove('active-view'));
+      document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.endpoint-tab-btn').forEach(tab => tab.classList.remove('active'));
+
+      const targetView = document.getElementById(`view-${viewName}`);
+      if (targetView) targetView.classList.add('active-view');
+
+      const navBtn = document.getElementById(`btn-nav-${viewName}`);
+      if (navBtn) navBtn.classList.add('active');
+
+      const tabBtn = document.getElementById(`tab-${viewName}`);
+      if (tabBtn) tabBtn.classList.add('active');
+
+      if (views[viewName]) {
+        document.getElementById('view-title').innerHTML = `${views[viewName].title} <span style="font-size: 0.75rem; font-weight: 700; background: var(--accent-lime); color: var(--surface-dark); padding: 2px 8px; border-radius: 999px;">v0.1.0</span>`;
+        document.getElementById('view-subtitle').innerText = views[viewName].sub;
+      }
+
+      if (viewName === 'metrics' || viewName === 'logs' || viewName === 'overview') {
+        fetchLiveTelemetry();
+      } else if (viewName === 'system') {
+        fetchHealth();
+      }
+      lucide.createIcons();
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('status-toast');
+      document.getElementById('toast-message').innerText = msg;
+      toast.style.display = 'flex';
+      setTimeout(() => { toast.style.display = 'none'; }, 2500);
+    }
+
+    function setQuickPreset(text) {
+      document.getElementById('quick-prompt').value = text;
+      document.querySelectorAll('.chip-btn').forEach(btn => btn.classList.remove('active-preset'));
+      if (event && event.target) event.target.classList.add('active-preset');
+    }
+
+    // 1. QUICK INFERENCE (Overview view)
+    async function executeQuickInference() {
+      const prompt = document.getElementById('quick-prompt').value.trim();
+      if (!prompt) return;
+
+      const btn = document.getElementById('quick-dispatch-btn');
+      const policy = document.getElementById('quick-policy').value;
+      const resPill = document.getElementById('quick-res-pill');
+      const resExp = document.getElementById('quick-res-explanation');
+
+      btn.disabled = true;
+      btn.innerHTML = `<i data-lucide="loader" style="width:14px; height:14px; animation: spin 1s linear infinite;"></i> Routing...`;
+      lucide.createIcons();
+
+      try {
+        const payload = {
+          model: "auto",
+          policy: policy,
+          messages: [{ role: "user", content: prompt }],
+          use_cache: true
+        };
+
+        const res = await fetch('/v1/chat/completions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        const meta = data.gateway_metadata || {};
+        const reply = data.choices && data.choices[0] ? data.choices[0].message.content : '(No content)';
+
+        resPill.innerText = meta.routed_model || data.model;
+        resPill.className = (meta.routed_model && (meta.routed_model.includes('20b') || meta.routed_model.includes('8b'))) ? 'pill-model cheap' : 'pill-model strong';
+        resExp.innerText = meta.route_reason || 'Inference completed successfully.';
+
+        document.getElementById('quick-response-box').innerText = reply;
+        document.getElementById('quick-meta-model').innerText = meta.routed_model || data.model;
+        document.getElementById('quick-meta-latency').innerText = `${meta.latency_ms ? meta.latency_ms.toFixed(1) : '--'}ms`;
+        document.getElementById('quick-meta-cost').innerText = `$${meta.cost_usd ? meta.cost_usd.toFixed(6) : '0.000000'}`;
+        document.getElementById('quick-meta-tokens').innerText = data.usage ? data.usage.total_tokens : '--';
+        document.getElementById('quick-meta-score').innerText = meta.complexity_score !== undefined ? meta.complexity_score.toFixed(2) : '--';
+
+        const cacheTag = document.getElementById('quick-meta-cache');
+        cacheTag.style.display = meta.cache_hit ? 'inline-flex' : 'none';
+
+        showToast(`Routed to ${meta.routed_model}`);
+        fetchLiveTelemetry();
+      } catch (e) {
+        resExp.innerText = `Error: ${e.message}`;
+        document.getElementById('quick-response-box').innerText = `Error: ${e.message}`;
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = `<i data-lucide="play" style="width:14px; height:14px; fill: currentColor;"></i> Execute Dispatch`;
+        lucide.createIcons();
+      }
+    }
+
+    // 2. FULL COMPLETIONS (/v1/chat/completions)
+    async function executeFullCompletion() {
+      const sysPrompt = document.getElementById('cmpl-system').value.trim();
+      const userPrompt = document.getElementById('cmpl-user-prompt').value.trim();
+      const policy = document.getElementById('cmpl-policy').value;
+      const temp = parseFloat(document.getElementById('cmpl-temp').value) || 0.7;
+      const useCache = document.getElementById('cmpl-use-cache').checked;
+      const btn = document.getElementById('cmpl-dispatch-btn');
+      const jsonBox = document.getElementById('cmpl-json-box');
+
+      btn.disabled = true;
+      btn.innerHTML = `<i data-lucide="loader" style="width:14px; height:14px; animation: spin 1s linear infinite;"></i> Executing...`;
+      lucide.createIcons();
+
+      const messages = [];
+      if (sysPrompt) messages.push({ role: "system", content: sysPrompt });
+      messages.push({ role: "user", content: userPrompt });
+
+      try {
+        const res = await fetch('/v1/chat/completions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            model: "auto",
+            policy: policy,
+            messages: messages,
+            temperature: temp,
+            use_cache: useCache
+          })
+        });
+
+        const data = await res.json();
+        jsonBox.innerText = JSON.stringify(data, null, 2);
+        showToast('POST /v1/chat/completions completed');
+        fetchLiveTelemetry();
+      } catch (err) {
+        jsonBox.innerText = `Error: ${err.message}`;
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = `<i data-lucide="send" style="width:15px; height:15px;"></i> Dispatch /v1/chat/completions`;
+        lucide.createIcons();
+      }
+    }
+
+    // 3. SIMPLIFIED CHAT (/v1/chat)
+    async function executeSimplifiedChat() {
+      const prompt = document.getElementById('sim-prompt').value.trim();
+      const policy = document.getElementById('sim-policy').value;
+      const model = document.getElementById('sim-model').value.trim() || "auto";
+      const btn = document.getElementById('sim-dispatch-btn');
+      const replyBox = document.getElementById('sim-reply-box');
+
+      btn.disabled = true;
+      btn.innerHTML = `<i data-lucide="loader" style="width:14px; height:14px; animation: spin 1s linear infinite;"></i> Calling...`;
+      lucide.createIcons();
+
+      try {
+        const res = await fetch('/v1/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            prompt: prompt,
+            model: model,
+            policy: policy
+          })
+        });
+
+        const data = await res.json();
+        replyBox.innerText = data.reply || '(Empty reply)';
+        document.getElementById('sim-model-tag').innerText = data.model_used || '--';
+        document.getElementById('sim-tele-model').innerText = data.model_used || '--';
+        document.getElementById('sim-tele-latency').innerText = `${data.latency_ms ? data.latency_ms.toFixed(1) : '--'}ms`;
+        document.getElementById('sim-tele-cost').innerText = `$${data.cost_usd ? data.cost_usd.toFixed(6) : '0.000000'}`;
+        document.getElementById('sim-tele-cache').innerText = data.cache_hit ? 'YES (⚡)' : 'NO';
+
+        showToast(`Simplified chat returned from ${data.model_used}`);
+        fetchLiveTelemetry();
+      } catch (err) {
+        replyBox.innerText = `Error: ${err.message}`;
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = `<i data-lucide="play" style="width:15px; height:15px; fill: currentColor;"></i> Execute /v1/chat`;
+        lucide.createIcons();
+      }
+    }
+
+    // 4. METRICS & LOGS FETCH
+    async function fetchLiveTelemetry() {
+      try {
+        const limit = document.getElementById('logs-limit-select') ? document.getElementById('logs-limit-select').value : 50;
+        const [metricsRes, logsRes] = await Promise.all([
+          fetch('/v1/metrics'),
+          fetch(`/v1/logs?limit=${limit}`)
+        ]);
+
+        if (metricsRes.ok) {
+          const m = await metricsRes.json();
+          // Overview KPI
+          document.getElementById('kpi-requests').innerText = m.total_requests.toLocaleString();
+          document.getElementById('kpi-cost').innerText = `$${m.total_cost_usd.toFixed(4)}`;
+          document.getElementById('kpi-latency').innerHTML = `${m.avg_latency_ms.toFixed(1)} <span style="font-size: 1.1rem; font-weight: 600;">ms</span>`;
+          document.getElementById('kpi-cache-rate').innerText = `${m.cache_hit_rate_pct.toFixed(1)}%`;
+          document.getElementById('kpi-cache-hits').innerText = `${m.cache_hits} hits`;
+
+          // Metrics View
+          if (document.getElementById('met-total-requests')) {
+            document.getElementById('met-total-requests').innerText = m.total_requests.toLocaleString();
+            document.getElementById('met-total-cost').innerText = `$${m.total_cost_usd.toFixed(4)}`;
+            document.getElementById('met-avg-latency').innerText = `${m.avg_latency_ms.toFixed(1)}ms`;
+            document.getElementById('met-cache-rate').innerText = `${m.cache_hit_rate_pct.toFixed(1)}%`;
+            document.getElementById('met-raw-json').innerText = JSON.stringify(m, null, 2);
+
+            const breakdownEl = document.getElementById('met-model-breakdown');
+            if (m.model_breakdown) {
+              breakdownEl.innerHTML = Object.entries(m.model_breakdown).map(([mod, stats]) => `
+                <div style="background:var(--surface-white); border:1px solid var(--border-subtle); border-radius:var(--radius-sm); padding:0.75rem;">
+                  <div style="display:flex; justify-content:space-between; font-weight:700; margin-bottom:0.25rem;">
+                    <span>${mod}</span>
+                    <span style="font-family:'JetBrains Mono', monospace;">$${stats.cost_usd.toFixed(5)}</span>
+                  </div>
+                  <div style="font-size:0.75rem; color:var(--text-muted); font-family:'JetBrains Mono', monospace;">
+                    ${stats.count} calls &bull; ${stats.total_tokens.toLocaleString()} tokens &bull; ${stats.avg_latency_ms.toFixed(1)}ms avg
+                  </div>
+                </div>
+              `).join('');
+            }
+          }
+        }
+
+        if (logsRes.ok) {
+          const logs = await logsRes.json();
+          renderLogTables(logs);
+        }
+      } catch (err) {
+        console.error('Failed to sync telemetry:', err);
+      }
+    }
+
+    function renderLogTables(logs) {
+      // 1. Overview small table
+      const ovBody = document.getElementById('overview-ledger-body');
+      if (ovBody) {
+        if (logs.length === 0) {
+          ovBody.innerHTML = '<tr><td colspan="9" style="text-align:center; color: var(--text-muted);">No records found.</td></tr>';
+        } else {
+          ovBody.innerHTML = logs.slice(0, 8).map(row => {
+            const statusClass = row.cache_hit ? 'cached' : 'success';
+            const statusLabel = row.cache_hit ? '⚡ CACHE' : 'LIVE';
+            const timeFormatted = row.timestamp ? row.timestamp.split('T')[1].slice(0, 8) : '--';
+            return `
+              <tr>
+                <td class="mono-cell" style="color: var(--text-muted);">${timeFormatted}</td>
+                <td class="mono-cell"><code>${row.endpoint}</code></td>
+                <td><span class="badge-tag-model">${row.routed_model}</span></td>
+                <td class="mono-cell">${row.complexity_score.toFixed(2)}</td>
+                <td class="mono-cell">${row.total_tokens}</td>
+                <td class="mono-cell">${row.latency_ms.toFixed(1)}ms</td>
+                <td class="mono-cell" style="font-weight:700;">$${row.cost_usd.toFixed(6)}</td>
+                <td><span class="badge-status ${statusClass}">${statusLabel}</span></td>
+                <td><span style="font-size: 0.75rem; font-weight: 700; color: #16A34A;">200 OK</span></td>
+              </tr>
+            `;
+          }).join('');
+        }
+      }
+
+      // 2. Full Ledger table in logs view
+      const logBody = document.getElementById('logs-table-body');
+      if (logBody) {
+        if (logs.length === 0) {
+          logBody.innerHTML = '<tr><td colspan="12" style="text-align:center; color: var(--text-muted);">No logs in database.</td></tr>';
+        } else {
+          logBody.innerHTML = logs.map(row => {
+            const statusClass = row.status === 'error' ? 'error' : (row.cache_hit ? 'cached' : 'success');
+            const statusLabel = row.status === 'error' ? 'ERROR' : (row.cache_hit ? '⚡ CACHE' : 'LIVE');
+            const timeFormatted = row.timestamp ? row.timestamp.replace('T', ' ').slice(0, 19) : '--';
+            return `
+              <tr>
+                <td class="mono-cell" style="color:var(--text-muted); font-size:0.7rem;">#${row.id}</td>
+                <td class="mono-cell" style="font-size:0.7rem; color:var(--text-muted);">${timeFormatted}</td>
+                <td class="mono-cell"><code>${row.endpoint}</code></td>
+                <td class="mono-cell" style="color:var(--text-muted);">${row.requested_model}</td>
+                <td><span class="badge-tag-model">${row.routed_model}</span></td>
+                <td class="mono-cell">${row.complexity_score.toFixed(2)}</td>
+                <td style="font-size:0.75rem; max-width:200px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" title="${row.route_reason}">${row.route_reason}</td>
+                <td class="mono-cell">${row.input_tokens} / ${row.output_tokens}</td>
+                <td class="mono-cell">${row.latency_ms.toFixed(1)}ms</td>
+                <td class="mono-cell" style="font-weight:700;">$${row.cost_usd.toFixed(6)}</td>
+                <td><span class="badge-status ${statusClass}">${statusLabel}</span></td>
+                <td><span style="font-size:0.725rem; font-weight:700; color:${row.status === 'error' ? '#DC2626' : '#16A34A'};">${row.status.toUpperCase()}</span></td>
+              </tr>
+            `;
+          }).join('');
+        }
+      }
+    }
+
+    // 5. SYSTEM HEALTH & CACHE PURGE
+    async function fetchHealth() {
+      try {
+        const res = await fetch('/health');
+        if (res.ok) {
+          const h = await res.json();
+          document.getElementById('sys-status').innerText = (h.status || 'healthy').toUpperCase();
+          document.getElementById('sys-provider').innerText = h.provider_mode || 'groq';
+          document.getElementById('sys-env').innerText = h.environment || 'development';
+          document.getElementById('sys-cheap').innerText = h.cheap_model || 'openai/gpt-oss-20b';
+          document.getElementById('sys-strong').innerText = h.strong_model || 'openai/gpt-oss-120b';
+        }
+      } catch (err) {
+        document.getElementById('sys-status').innerText = 'OFFLINE';
+        document.getElementById('sys-status').style.color = '#DC2626';
+      }
+    }
+
+    async function clearGatewayCache() {
+      try {
+        const res = await fetch('/v1/cache/clear', { method: 'POST' });
+        if (res.ok) {
+          const data = await res.json();
+          document.getElementById('sys-cache-status-text').innerText = 'Purged & Reinitialized';
+          showToast(data.message || 'Cache Cleared');
+          fetchLiveTelemetry();
+        }
+      } catch (err) {
+        showToast(`Cache purge failed: ${err.message}`);
+      }
+    }
+
+    // Startup
+    window.addEventListener('DOMContentLoaded', () => {
+      fetchLiveTelemetry();
+      fetchHealth();
+    });
+  </script>
+</body>
+</html>

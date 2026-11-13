@@ -1,0 +1,28 @@
+# Environment variables
+.env
+.env.local
+
+# Python cache & virtualenv
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+
+# Database & persistence
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+
+# Test & coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs & build artifacts
+*.log
+dist/
+build/
+*.egg-info/
+

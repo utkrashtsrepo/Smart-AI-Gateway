@@ -1,0 +1,24 @@
+services:
+  gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: smart-ai-gateway
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=production
+      - GROQ_API_KEY=${GROQ_API_KEY:-}
+      - USE_MOCK_PROVIDER=${USE_MOCK_PROVIDER:-false}
+      - CHEAP_MODEL=llama-3.1-8b-instant
+      - STRONG_MODEL=llama-3.3-70b-versatile
+      - FALLBACK_MODEL=llama-3.1-8b-instant
+      - CACHE_TTL_SECONDS=3600
+      - DATABASE_PATH=/app/data/gateway_logs.db
+    volumes:
+      - gateway_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  gateway_data:
+
