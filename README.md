@@ -32,39 +32,43 @@ Think of how a Michelin-standard kitchen handles orders:
 
 ### Request Lifecycle
 
+
+### Request Lifecycle
+
 ```mermaid
-flowchart TD
-    A["Client Request<br/>POST /v1/chat/completions"] --> B["FastAPI<br/>Validation + Request ID"]
+flowchart LR
+    A["Client Request"] --> B["FastAPI<br/>Validation"]
     B --> C{"Cache Hit?"}
 
-    C -->|Yes| H["Retrieve Cached Response"]
-    C -->|No| D["Complexity Analysis<br/>Auto-Router"]
+    C -->|Yes| H["Cached Response"]
+    C -->|No| D["Complexity<br/>Analysis"]
 
-    D --> E{"Model Selection"}
-    E -->|Low| F["Cheap Model<br/>20B"]
-    E -->|High| G["Strong Model<br/>120B"]
+    D --> E{"Auto Router"}
+    E -->|Low| F["20B Model"]
+    E -->|High| G["120B Model"]
 
     F --> I["LLM Provider"]
     G --> I
 
     I --> J{"Success?"}
-    J -->|Yes| K["Parse Response + Cache"]
-    J -->|No| L["Retry + Exponential Backoff"]
+    J -->|Yes| K["Parse + Cache"]
+    J -->|No| L["Retry"]
 
-    L --> M{"Retries Exhausted?"}
+    L --> M{"Exhausted?"}
     M -->|No| I
     M -->|Yes| N["Fallback Model"]
 
-    N --> O{"Fallback Success?"}
+    N --> O{"Success?"}
     O -->|Yes| K
-    O -->|No| P["Error Response"]
+    O -->|No| P["Error"]
 
-    H --> Q["Response + SQLite Logging"]
+    H --> Q["SQLite Logging"]
     K --> Q
     P --> Q
 
-    Q --> R["Return to Client"]
+    Q --> R["Client Response"]
 ```
+
 
 
 
