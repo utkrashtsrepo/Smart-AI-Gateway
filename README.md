@@ -29,46 +29,43 @@ Think of how a Michelin-standard kitchen handles orders:
 
 ### Detailed Request Lifecycle
 
+
+### Request Lifecycle
+
 ```mermaid
 flowchart TD
-    A["Client sends POST /v1/chat/completions"] --> B["FastAPI receives request"]
-    B --> C["Validate request and extract messages"]
-    C --> D["Generate Request ID and start timer"]
-    D --> E["Check SHA-256 Response Cache"]
+    A["Client Request<br/>POST /v1/chat/completions"] --> B["FastAPI<br/>Validation + Request ID"]
+    B --> C{"Cache Hit?"}
 
-    E --> F{"Cache Hit?"}
-    F -->|Yes| G["Retrieve Cached Response"]
-    F -->|No| H["Analyze Query Complexity"]
+    C -->|Yes| H["Retrieve Cached Response"]
+    C -->|No| D["Complexity Analysis<br/>Auto-Router"]
 
-    H --> I{"Complexity Score"}
-    I -->|Low| J["Select Cheap Model - 20B"]
-    I -->|High| K["Select Strong Model - 120B"]
+    D --> E{"Model Selection"}
+    E -->|Low| F["Cheap Model<br/>20B"]
+    E -->|High| G["Strong Model<br/>120B"]
 
-    J --> L["Call LLM Provider"]
-    K --> L
+    F --> I["LLM Provider"]
+    G --> I
 
-    L --> M{"Provider Successful?"}
-    M -->|Yes| N["Parse Model Response"]
-    M -->|No| O["Retry with Exponential Backoff"]
+    I --> J{"Success?"}
+    J -->|Yes| K["Parse Response + Cache"]
+    J -->|No| L["Retry + Exponential Backoff"]
 
-    O --> P{"Retries Exhausted?"}
-    P -->|No| L
-    P -->|Yes| Q["Trigger Fallback Model"]
+    L --> M{"Retries Exhausted?"}
+    M -->|No| I
+    M -->|Yes| N["Fallback Model"]
 
-    Q --> R{"Fallback Successful?"}
-    R -->|Yes| N
-    R -->|No| S["Return Error Response"]
+    N --> O{"Fallback Success?"}
+    O -->|Yes| K
+    O -->|No| P["Error Response"]
 
-    N --> T["Store Successful Response in Cache"]
-    G --> U["Prepare API Response"]
-    T --> U
+    H --> Q["Response + SQLite Logging"]
+    K --> Q
+    P --> Q
 
-    S --> V["Record Failure in SQLite"]
-    U --> W["Record Usage, Latency, Cost and Route"]
-    V --> W
-
-    W --> X["Return Response to Client"]
+    Q --> R["Return to Client"]
 ```
+
 
 
 ## 🚀 The Three Pillars Explained
