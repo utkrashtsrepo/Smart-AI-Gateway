@@ -26,6 +26,10 @@ Think of how a Michelin-standard kitchen handles orders:
 
 ## 🏗️ System Architecture
 
+
+### Detailed Request Lifecycle
+
+```mermaid
 flowchart TD
     A["Client sends POST /v1/chat/completions"] --> B["FastAPI receives request"]
     B --> C["Validate request and extract messages"]
@@ -45,7 +49,7 @@ flowchart TD
 
     L --> M{"Provider Successful?"}
     M -->|Yes| N["Parse Model Response"]
-    M -->|No| O["Retry with Jittered Exponential Backoff"]
+    M -->|No| O["Retry with Exponential Backoff"]
 
     O --> P{"Retries Exhausted?"}
     P -->|No| L
@@ -64,14 +68,8 @@ flowchart TD
     V --> W
 
     W --> X["Return Response to Client"]
+```
 
-    classDef success fill:#d1fae5,stroke:#059669,color:#065f46
-    classDef failure fill:#fee2e2,stroke:#dc2626,color:#991b1b
-    classDef process fill:#dbeafe,stroke:#2563eb,color:#1e40af
-
-    class N,T,G,U,X success
-    class S,V failure
-    class B,C,D,E,H,J,K,L,O,Q,W process
 
 ## 🚀 The Three Pillars Explained
 
