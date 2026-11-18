@@ -30,11 +30,6 @@ Think of how a Michelin-standard kitchen handles orders:
 ### Detailed Request Lifecycle
 
 
-### Request Lifecycle
-
-
-### Request Lifecycle
-
 ```mermaid
 flowchart LR
     A["Client Request"] --> B["FastAPI<br/>Validation"]
