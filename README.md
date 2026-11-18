@@ -26,46 +26,52 @@ Think of how a Michelin-standard kitchen handles orders:
 
 ## 🏗️ System Architecture
 
-```mermaid
 flowchart TD
-    App[fa:fa-mobile Client App / Agent / Web UI] -->|HTTP REST| Gateway[fa:fa-network-wired Smart AI Gateway]
+    A["Client sends POST /v1/chat/completions"] --> B["FastAPI receives request"]
+    B --> C["Validate request and extract messages"]
+    C --> D["Generate Request ID and start timer"]
+    D --> E["Check SHA-256 Response Cache"]
 
-    subgraph Gateway Core Engine
-        Gateway --> Router{fa:fa-random Auto-Router}
-        Router -->|Low Complexity / Simple Q&A| Cheap[fa:fa-bolt Cheap Tier <br> openai/gpt-oss-20b]
-        Router -->|Code / Architecture / Multi-Step| Strong[fa:fa-brain Strong Tier <br> openai/gpt-oss-120b]
+    E --> F{"Cache Hit?"}
+    F -->|Yes| G["Retrieve Cached Response"]
+    F -->|No| H["Analyze Query Complexity"]
 
-        Gateway --> Cache[(fa:fa-bolt In-Memory TTL Cache <br> SHA-256 Keyed)]
-        Gateway --> Reliability[fa:fa-shield-alt Reliability Manager <br> Jittered Exponential Backoff]
-        Reliability --> Fallback[fa:fa-life-ring Automatic Fallback Failover]
-    end
+    H --> I{"Complexity Score"}
+    I -->|Low| J["Select Cheap Model - 20B"]
+    I -->|High| K["Select Strong Model - 120B"]
 
-    subgraph LLMOps Observability & Ledger
-        Gateway --> Logger[fa:fa-chart-line LLMOps Logger]
-        Logger --> DB[(fa:fa-database SQLite request_logs)]
-        DB --> Dashboard[fa:fa-tachometer-alt GET /v1/metrics <br> Costs, Latencies, Cache Rate, SLA]
-    end
+    J --> L["Call LLM Provider"]
+    K --> L
 
-    subgraph Interactive Web UI
-        Web[fa:fa-desktop Swiss-Aesthetic Console] -->|Endpoints & Tests| Gateway
-        Web --> Tab1[POST /v1/chat/completions]
-        Web --> Tab2[POST /v1/chat]
-        Web --> Tab3[GET /v1/metrics]
-        Web --> Tab4[GET /v1/logs]
-        Web --> Tab5[GET /health & Cache Purge]
-    end
+    L --> M{"Provider Successful?"}
+    M -->|Yes| N["Parse Model Response"]
+    M -->|No| O["Retry with Jittered Exponential Backoff"]
 
-    subgraph Agent Evaluation Harness
-        Agent[fa:fa-robot ReAct Tool-Calling Agent] -->|Benchmark Exam: 30 Tasks| Gateway
-        Agent --> Calc[fa:fa-calculator Calculator Tool]
-        Agent --> KB[fa:fa-book Knowledge Lookup Tool]
-        Agent --> Py[fa:fa-code Python REPL Sandbox]
-        Agent --> Scorer[fa:fa-check-circle Custom Evaluation Scorers]
-        Scorer --> Report[fa:fa-file-alt Benchmark Report & PNG Charts]
-    end
-```
+    O --> P{"Retries Exhausted?"}
+    P -->|No| L
+    P -->|Yes| Q["Trigger Fallback Model"]
 
----
+    Q --> R{"Fallback Successful?"}
+    R -->|Yes| N
+    R -->|No| S["Return Error Response"]
+
+    N --> T["Store Successful Response in Cache"]
+    G --> U["Prepare API Response"]
+    T --> U
+
+    S --> V["Record Failure in SQLite"]
+    U --> W["Record Usage, Latency, Cost and Route"]
+    V --> W
+
+    W --> X["Return Response to Client"]
+
+    classDef success fill:#d1fae5,stroke:#059669,color:#065f46
+    classDef failure fill:#fee2e2,stroke:#dc2626,color:#991b1b
+    classDef process fill:#dbeafe,stroke:#2563eb,color:#1e40af
+
+    class N,T,G,U,X success
+    class S,V failure
+    class B,C,D,E,H,J,K,L,O,Q,W process
 
 ## 🚀 The Three Pillars Explained
 
