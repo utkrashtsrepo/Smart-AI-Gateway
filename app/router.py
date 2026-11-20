@@ -232,9 +232,15 @@ class AutoRouter:
                 signals={"explicit_model": requested_model},
             )
 
-        # Extract combined user/system text for inspection
-        combined_text = "\n".join([m.content for m in messages if m.content])
-        score, reasons, signals = self.analyze_text(combined_text)
+        # Extract user messages for task complexity evaluation
+        # (Focus on user requests to prevent static system prompts/tool definitions from inflating complexity)
+        user_texts = [m.content for m in messages if m.role == "user" and m.content]
+        if user_texts:
+            text_to_analyze = "\n".join(user_texts)
+        else:
+            text_to_analyze = "\n".join([m.content for m in messages if m.content])
+
+        score, reasons, signals = self.analyze_text(text_to_analyze)
 
         if score >= self.threshold:
             selected_model = self.strong_model
