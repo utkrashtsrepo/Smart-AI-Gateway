@@ -2,42 +2,42 @@
   "always_cheap": {
     "policy": "always_cheap",
     "total_tasks": 30,
-    "passed_tasks": 6,
-    "pass_rate_pct": 20.0,
+    "passed_tasks": 24,
+    "pass_rate_pct": 80.0,
     "category_breakdown": {
       "easy": {
-        "passed": 5,
+        "passed": 10,
         "total": 10,
-        "pass_rate_pct": 50.0
+        "pass_rate_pct": 100.0
       },
       "medium": {
-        "passed": 1,
+        "passed": 8,
         "total": 10,
-        "pass_rate_pct": 10.0
+        "pass_rate_pct": 80.0
       },
       "hard": {
-        "passed": 0,
+        "passed": 6,
         "total": 10,
-        "pass_rate_pct": 0.0
+        "pass_rate_pct": 60.0
       }
     },
-    "total_cost_usd": 0.000346,
-    "avg_cost_per_task_usd": 1.15e-05,
-    "cost_per_1000_tasks_usd": 0.0115,
-    "avg_latency_ms": 28.96,
-    "elapsed_seconds": 1.49,
+    "total_cost_usd": 0.001488,
+    "avg_cost_per_task_usd": 4.96e-05,
+    "cost_per_1000_tasks_usd": 0.0496,
+    "avg_latency_ms": 3585.97,
+    "elapsed_seconds": 210.37,
     "task_details": [
       {
         "task_id": "easy_01",
         "category": "easy",
         "question": "What is the capital city of France?",
         "expected": "Paris",
-        "actual": "The capital of France is Paris.",
+        "actual": "Paris",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-20b"
         ],
         "scores": {
           "answer": 1.0,
@@ -46,20 +46,20 @@
           "composite": 1.0
         },
         "passed": true,
-        "cost_usd": 1e-05,
-        "latency_ms": 44.2
+        "cost_usd": 1.5e-05,
+        "latency_ms": 1763.59
       },
       {
         "task_id": "easy_02",
         "category": "easy",
         "question": "What is the capital city of Japan?",
         "expected": "Tokyo",
-        "actual": "The capital of Japan is Tokyo.",
+        "actual": "Tokyo.",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-20b"
         ],
         "scores": {
           "answer": 1.0,
@@ -68,42 +68,42 @@
           "composite": 1.0
         },
         "passed": true,
-        "cost_usd": 1e-05,
-        "latency_ms": 29.66
+        "cost_usd": 1.5e-05,
+        "latency_ms": 1214.05
       },
       {
         "task_id": "easy_03",
         "category": "easy",
         "question": "Define what an API stands for in software engineering.",
         "expected": "Application Programming Interface",
-        "actual": "Brief answer: Response to 'Define what an API stands for in software engineering.'.",
+        "actual": "**API** stands for **Application Programming Interface**. In software engineering, an API is a set of rules, protocols, and tools that allows different software components or systems to communicate with each other. It defines the methods and data formats that developers can use to interact with a service, library, or platform, enabling modular, reusable, and interoperable code.",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-20b"
         ],
         "scores": {
-          "answer": 0.0,
+          "answer": 1.0,
           "tools": 1.0,
           "trajectory": 1.0,
-          "composite": 0.4
+          "composite": 1.0
         },
-        "passed": false,
-        "cost_usd": 1.1e-05,
-        "latency_ms": 31.57
+        "passed": true,
+        "cost_usd": 2.1e-05,
+        "latency_ms": 992.64
       },
       {
         "task_id": "easy_04",
         "category": "easy",
         "question": "What is the capital of Germany?",
         "expected": "Berlin",
-        "actual": "The capital of Germany is Berlin.",
+        "actual": "Berlin",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-20b"
         ],
         "scores": {
           "answer": 1.0,
@@ -112,64 +112,64 @@
           "composite": 1.0
         },
         "passed": true,
-        "cost_usd": 1e-05,
-        "latency_ms": 31.18
+        "cost_usd": 1.5e-05,
+        "latency_ms": 829.73
       },
       {
         "task_id": "easy_05",
         "category": "easy",
         "question": "Translate the greeting 'Hello, how are you?' into Spanish.",
         "expected": "Hola",
-        "actual": "Brief answer: Response to 'Translate the greeting 'Hello, how are you?' into Spanish.'.",
+        "actual": "Hola, \u00bfc\u00f3mo est\u00e1s?",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-20b"
         ],
         "scores": {
-          "answer": 0.0,
+          "answer": 1.0,
           "tools": 1.0,
           "trajectory": 1.0,
-          "composite": 0.4
+          "composite": 1.0
         },
-        "passed": false,
-        "cost_usd": 1.1e-05,
-        "latency_ms": 18.23
+        "passed": true,
+        "cost_usd": 1.8e-05,
+        "latency_ms": 1563.88
       },
       {
         "task_id": "easy_06",
         "category": "easy",
         "question": "Classify the sentiment of: 'I love this product, it works brilliantly!'",
         "expected": "positive",
-        "actual": "Brief answer: Response to 'Classify the sentiment of: 'I love this product, it works brilliantly!''.",
+        "actual": "Positive",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-20b"
         ],
         "scores": {
-          "answer": 0.0,
+          "answer": 1.0,
           "tools": 1.0,
           "trajectory": 1.0,
-          "composite": 0.4
+          "composite": 1.0
         },
-        "passed": false,
-        "cost_usd": 1.2e-05,
-        "latency_ms": 19.43
+        "passed": true,
+        "cost_usd": 1.5e-05,
+        "latency_ms": 789.29
       },
       {
         "task_id": "easy_07",
         "category": "easy",
         "question": "What is the capital city of Australia?",
         "expected": "Canberra",
-        "actual": "The capital of Australia is Canberra.",
+        "actual": "Canberra.",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-20b"
         ],
         "scores": {
           "answer": 1.0,
@@ -178,42 +178,20 @@
           "composite": 1.0
         },
         "passed": true,
-        "cost_usd": 1e-05,
-        "latency_ms": 29.42
+        "cost_usd": 1.5e-05,
+        "latency_ms": 736.84
       },
       {
         "task_id": "easy_08",
         "category": "easy",
         "question": "What does HTTP stand for?",
         "expected": "Hypertext Transfer Protocol",
-        "actual": "Brief answer: Response to 'What does HTTP stand for?'.",
+        "actual": "Hypertext Transfer Protocol.",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.1-8b-instant"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 1.0,
-          "trajectory": 1.0,
-          "composite": 0.4
-        },
-        "passed": false,
-        "cost_usd": 1e-05,
-        "latency_ms": 30.26
-      },
-      {
-        "task_id": "easy_09",
-        "category": "easy",
-        "question": "Extract the email address from this message: 'Please reach out at support@gateway.io for help.'",
-        "expected": "support@gateway.io",
-        "actual": "Brief answer: Response to 'Extract the email address from this message: 'Please reach out at support@gateway.io for help.''.",
-        "tools_used": [],
-        "expected_tools": [],
-        "steps": 1,
-        "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-20b"
         ],
         "scores": {
           "answer": 1.0,
@@ -222,501 +200,152 @@
           "composite": 1.0
         },
         "passed": true,
-        "cost_usd": 1.2e-05,
-        "latency_ms": 16.44
+        "cost_usd": 1.6e-05,
+        "latency_ms": 951.64
+      },
+      {
+        "task_id": "easy_09",
+        "category": "easy",
+        "question": "Extract the email address from this message: 'Please reach out at support@gateway.io for help.'",
+        "expected": "support@gateway.io",
+        "actual": "support@gateway.io",
+        "tools_used": [],
+        "expected_tools": [],
+        "steps": 1,
+        "models_used": [
+          "openai/gpt-oss-20b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 1.0,
+          "trajectory": 1.0,
+          "composite": 1.0
+        },
+        "passed": true,
+        "cost_usd": 1.7e-05,
+        "latency_ms": 888.36
       },
       {
         "task_id": "easy_10",
         "category": "easy",
         "question": "What is the chemical symbol for Gold?",
         "expected": "Au",
-        "actual": "Brief answer: Response to 'What is the chemical symbol for Gold?'.",
+        "actual": "Au",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-20b"
         ],
         "scores": {
-          "answer": 0.0,
+          "answer": 1.0,
           "tools": 1.0,
           "trajectory": 1.0,
-          "composite": 0.4
+          "composite": 1.0
         },
-        "passed": false,
-        "cost_usd": 1e-05,
-        "latency_ms": 32.05
+        "passed": true,
+        "cost_usd": 1.6e-05,
+        "latency_ms": 898.19
       },
       {
         "task_id": "med_01",
         "category": "medium",
         "question": "Use the calculator tool to calculate: 125 * 84",
         "expected": "10500",
-        "actual": "The answer is approximately 10500",
-        "tools_used": [],
+        "actual": "125 \u00d7 84 = 10,500.",
+        "tools_used": [
+          "calculator"
+        ],
         "expected_tools": [
           "calculator"
         ],
-        "steps": 1,
+        "steps": 2,
         "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b"
         ],
         "scores": {
           "answer": 1.0,
-          "tools": 0.0,
+          "tools": 1.0,
           "trajectory": 1.0,
-          "composite": 0.75
+          "composite": 1.0
         },
         "passed": true,
-        "cost_usd": 1e-05,
-        "latency_ms": 33.16
+        "cost_usd": 3.1e-05,
+        "latency_ms": 1523.35
       },
       {
         "task_id": "med_02",
         "category": "medium",
         "question": "Look up our internal knowledge base: What was the reported Q3 revenue?",
         "expected": "$14.2 Million",
-        "actual": "Brief answer: Response to 'Look up our internal knowledge base: What was the reported Q3 revenue?'.",
-        "tools_used": [],
+        "actual": "The reported Q3 revenue was **$14.2\u202fmillion**.",
+        "tools_used": [
+          "knowledge_lookup",
+          "knowledge_lookup"
+        ],
         "expected_tools": [
           "knowledge_lookup"
         ],
-        "steps": 1,
+        "steps": 3,
         "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b"
         ],
         "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
+          "answer": 1.0,
+          "tools": 1.0,
+          "trajectory": 0.8,
+          "composite": 0.97
         },
-        "passed": false,
-        "cost_usd": 1.2e-05,
-        "latency_ms": 23.03
+        "passed": true,
+        "cost_usd": 5.4e-05,
+        "latency_ms": 2935.77
       },
       {
         "task_id": "med_03",
         "category": "medium",
         "question": "Calculate the arithmetic expression: (4500 / 15) + 380",
         "expected": "680",
-        "actual": "The answer is approximately 300.0",
-        "tools_used": [],
+        "actual": "680",
+        "tools_used": [
+          "calculator"
+        ],
         "expected_tools": [
           "calculator"
         ],
-        "steps": 1,
+        "steps": 2,
         "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b"
         ],
         "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
+          "answer": 1.0,
+          "tools": 1.0,
           "trajectory": 1.0,
-          "composite": 0.15
+          "composite": 1.0
         },
-        "passed": false,
-        "cost_usd": 1e-05,
-        "latency_ms": 14.23
+        "passed": true,
+        "cost_usd": 3.2e-05,
+        "latency_ms": 1929.6
       },
       {
         "task_id": "med_04",
         "category": "medium",
         "question": "Query the knowledge base to find the 90-day server uptime percentage of the European cluster.",
         "expected": "99.982%",
-        "actual": "Brief answer: Response to 'Query the knowledge base to find the 90-day server uptime percentage of the European cluster.'.",
-        "tools_used": [],
+        "actual": "The European cluster\u2019s 90\u2011day server uptime percentage is **99.982\u202f%**.",
+        "tools_used": [
+          "knowledge_lookup"
+        ],
         "expected_tools": [
           "knowledge_lookup"
         ],
-        "steps": 1,
+        "steps": 2,
         "models_used": [
-          "llama-3.1-8b-instant"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 1.2e-05,
-        "latency_ms": 15.53
-      },
-      {
-        "task_id": "med_05",
-        "category": "medium",
-        "question": "Compute using calculator: 2 ** 10",
-        "expected": "1024",
-        "actual": "Brief answer: Response to 'Compute using calculator: 2 ** 10'.",
-        "tools_used": [],
-        "expected_tools": [
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.1-8b-instant"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 1e-05,
-        "latency_ms": 12.95
-      },
-      {
-        "task_id": "med_06",
-        "category": "medium",
-        "question": "Query the knowledge base for the pricing of llama_8b model.",
-        "expected": "$0.05",
-        "actual": "Brief answer: Response to 'Query the knowledge base for the pricing of llama_8b model.'.",
-        "tools_used": [],
-        "expected_tools": [
-          "knowledge_lookup"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.1-8b-instant"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 1.1e-05,
-        "latency_ms": 20.04
-      },
-      {
-        "task_id": "med_07",
-        "category": "medium",
-        "question": "Calculate the total cost of buying 15 items at $34.50 each.",
-        "expected": "517.5",
-        "actual": "Brief answer: Response to 'Calculate the total cost of buying 15 items at $34.50 each.'.",
-        "tools_used": [],
-        "expected_tools": [
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.1-8b-instant"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 1.1e-05,
-        "latency_ms": 30.62
-      },
-      {
-        "task_id": "med_08",
-        "category": "medium",
-        "question": "Look up in knowledge base: Who is the principal AI systems architect?",
-        "expected": "Alex Chen",
-        "actual": "Brief answer: Response to 'Look up in knowledge base: Who is the principal AI systems architect?'.",
-        "tools_used": [],
-        "expected_tools": [
-          "knowledge_lookup"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.1-8b-instant"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 1.2e-05,
-        "latency_ms": 32.84
-      },
-      {
-        "task_id": "med_09",
-        "category": "medium",
-        "question": "Evaluate this math equation: 9876 - 4321 + 555",
-        "expected": "6110",
-        "actual": "The answer is approximately 5555",
-        "tools_used": [],
-        "expected_tools": [
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.1-8b-instant"
-        ],
-        "scores": {
-          "answer": 0.09,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.204
-        },
-        "passed": false,
-        "cost_usd": 1e-05,
-        "latency_ms": 41.33
-      },
-      {
-        "task_id": "med_10",
-        "category": "medium",
-        "question": "Look up in the knowledge base: What is the average distance from Earth to Mars?",
-        "expected": "225 million kilometers",
-        "actual": "Brief answer: Response to 'Look up in the knowledge base: What is the average distance from Earth to Mars?'.",
-        "tools_used": [],
-        "expected_tools": [
-          "knowledge_lookup"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.1-8b-instant"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 1.2e-05,
-        "latency_ms": 32.61
-      },
-      {
-        "task_id": "hard_01",
-        "category": "hard",
-        "question": "Step by step, calculate the total token cost for processing 2,500,000 input tokens and 800,000 output tokens on a model priced at $0.59 per 1M input and $0.79 per 1M output tokens.",
-        "expected": "2.107",
-        "actual": "Brief answer: Response to 'Step by step, calculate the total token cost for processing 2,500,000 input tokens and 800,000 output tokens on a model priced at $0.59 per 1M input and $0.79 per 1M output tokens.'.",
-        "tools_used": [],
-        "expected_tools": [
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.1-8b-instant"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 1.5e-05,
-        "latency_ms": 29.82
-      },
-      {
-        "task_id": "hard_02",
-        "category": "hard",
-        "question": "Execute Python code using python_repl: calculate the sum of all prime numbers between 10 and 30.",
-        "expected": "112",
-        "actual": "def solve(): pass # Simple stub",
-        "tools_used": [],
-        "expected_tools": [
-          "python_repl"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.1-8b-instant"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 1e-05,
-        "latency_ms": 30.86
-      },
-      {
-        "task_id": "hard_03",
-        "category": "hard",
-        "question": "First lookup the Q3 revenue in the knowledge base, then use the calculator to compute what a 20% tax deduction on that revenue would leave as net revenue.",
-        "expected": "11.36",
-        "actual": "Brief answer: Response to 'First lookup the Q3 revenue in the knowledge base, then use the calculator to compute what a 20% tax deduction on that revenue would leave as net revenue.'.",
-        "tools_used": [],
-        "expected_tools": [
-          "knowledge_lookup",
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.1-8b-instant"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 1.4e-05,
-        "latency_ms": 36.0
-      },
-      {
-        "task_id": "hard_04",
-        "category": "hard",
-        "question": "Write a python function `def fib(n):` using python_repl that computes the 12th Fibonacci number (where fib(1)=1, fib(2)=1). What is fib(12)?",
-        "expected": "144",
-        "actual": "def solve(): pass # Simple stub",
-        "tools_used": [],
-        "expected_tools": [
-          "python_repl"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.1-8b-instant"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 1.1e-05,
-        "latency_ms": 33.17
-      },
-      {
-        "task_id": "hard_05",
-        "category": "hard",
-        "question": "Step by step reasoning: A server cluster has 8 nodes each handling 650 req/sec. If incoming traffic spikes by 35%, how many total requests per second must the cluster handle? Calculate the exact number.",
-        "expected": "7020",
-        "actual": "Brief answer: Response to 'Step by step reasoning: A server cluster has 8 nodes each handling 650 req/sec. If incoming traffic spikes by 35%, how many total requests per second must the cluster handle? Calculate the exact number.'.",
-        "tools_used": [],
-        "expected_tools": [
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.1-8b-instant"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 1.6e-05,
-        "latency_ms": 35.33
-      },
-      {
-        "task_id": "hard_06",
-        "category": "hard",
-        "question": "Look up the population of Paris in the knowledge store, then calculate how many people that would be if the population grew by 15%.",
-        "expected": "2.415",
-        "actual": "Brief answer: Response to 'Look up the population of Paris in the knowledge store, then calculate how many people that would be if the population grew by 15%.'.",
-        "tools_used": [],
-        "expected_tools": [
-          "knowledge_lookup",
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.1-8b-instant"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 1.4e-05,
-        "latency_ms": 28.97
-      },
-      {
-        "task_id": "hard_07",
-        "category": "hard",
-        "question": "Using python_repl, count how many occurrences of the letter 'e' exist in this string: 'distributed asynchronous microservices architecture'.",
-        "expected": "7",
-        "actual": "Brief answer: Response to 'Using python_repl, count how many occurrences of the letter 'e' exist in this string: 'distributed asynchronous microservices architecture'.'.",
-        "tools_used": [],
-        "expected_tools": [
-          "python_repl"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.1-8b-instant"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 1.4e-05,
-        "latency_ms": 32.13
-      },
-      {
-        "task_id": "hard_08",
-        "category": "hard",
-        "question": "Solve this multi-step equation: If x = (144 / 12) + 25, and y = x * 3 - 15, what is the value of y?",
-        "expected": "96",
-        "actual": "The answer is approximately 12.0",
-        "tools_used": [],
-        "expected_tools": [
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.1-8b-instant"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 1.1e-05,
-        "latency_ms": 39.63
-      },
-      {
-        "task_id": "hard_09",
-        "category": "hard",
-        "question": "Look up the pricing for llama_70b in the knowledge base, then calculate the cost in USD of 5 million input tokens.",
-        "expected": "2.95",
-        "actual": "Brief answer: Response to 'Look up the pricing for llama_70b in the knowledge base, then calculate the cost in USD of 5 million input tokens.'.",
-        "tools_used": [],
-        "expected_tools": [
-          "knowledge_lookup",
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.1-8b-instant"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 1.3e-05,
-        "latency_ms": 27.25
-      },
-      {
-        "task_id": "hard_10",
-        "category": "hard",
-        "question": "Step by step logic & code analysis: Analyze a binary search tree with elements [3, 7, 9, 12, 18, 24, 30]. What is the maximum number of comparisons needed to find or confirm absence of any element?",
-        "expected": "3",
-        "actual": "def solve(): pass # Simple stub",
-        "tools_used": [],
-        "expected_tools": [],
-        "steps": 1,
-        "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b"
         ],
         "scores": {
           "answer": 0.0,
@@ -725,50 +354,498 @@
           "composite": 0.4
         },
         "passed": false,
-        "cost_usd": 1.2e-05,
-        "latency_ms": 36.89
+        "cost_usd": 3.3e-05,
+        "latency_ms": 1911.63
+      },
+      {
+        "task_id": "med_05",
+        "category": "medium",
+        "question": "Compute using calculator: 2 ** 10",
+        "expected": "1024",
+        "actual": "1024",
+        "tools_used": [
+          "calculator"
+        ],
+        "expected_tools": [
+          "calculator"
+        ],
+        "steps": 2,
+        "models_used": [
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 1.0,
+          "trajectory": 1.0,
+          "composite": 1.0
+        },
+        "passed": true,
+        "cost_usd": 3.1e-05,
+        "latency_ms": 2132.59
+      },
+      {
+        "task_id": "med_06",
+        "category": "medium",
+        "question": "Query the knowledge base for the pricing of llama_8b model.",
+        "expected": "$0.05",
+        "actual": "The Llama\u20113.1\u20118b\u2011instant model costs **$0.05 per 1\u202fmillion input tokens** and **$0.08 per 1\u202fmillion output tokens**.",
+        "tools_used": [
+          "knowledge_lookup",
+          "knowledge_lookup"
+        ],
+        "expected_tools": [
+          "knowledge_lookup"
+        ],
+        "steps": 3,
+        "models_used": [
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 1.0,
+          "trajectory": 0.8,
+          "composite": 0.97
+        },
+        "passed": true,
+        "cost_usd": 6e-05,
+        "latency_ms": 2933.66
+      },
+      {
+        "task_id": "med_07",
+        "category": "medium",
+        "question": "Calculate the total cost of buying 15 items at $34.50 each.",
+        "expected": "517.5",
+        "actual": "$517.50",
+        "tools_used": [
+          "calculator"
+        ],
+        "expected_tools": [
+          "calculator"
+        ],
+        "steps": 2,
+        "models_used": [
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 1.0,
+          "trajectory": 1.0,
+          "composite": 1.0
+        },
+        "passed": true,
+        "cost_usd": 3e-05,
+        "latency_ms": 2033.94
+      },
+      {
+        "task_id": "med_08",
+        "category": "medium",
+        "question": "Look up in knowledge base: Who is the principal AI systems architect?",
+        "expected": "Alex Chen",
+        "actual": "I\u2019m sorry, but I couldn\u2019t find any information on the principal AI systems architect in the knowledge base.",
+        "tools_used": [
+          "knowledge_lookup"
+        ],
+        "expected_tools": [
+          "knowledge_lookup"
+        ],
+        "steps": 2,
+        "models_used": [
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b"
+        ],
+        "scores": {
+          "answer": 0.0,
+          "tools": 1.0,
+          "trajectory": 1.0,
+          "composite": 0.4
+        },
+        "passed": false,
+        "cost_usd": 4.7e-05,
+        "latency_ms": 2229.98
+      },
+      {
+        "task_id": "med_09",
+        "category": "medium",
+        "question": "Evaluate this math equation: 9876 - 4321 + 555",
+        "expected": "6110",
+        "actual": "6110",
+        "tools_used": [
+          "calculator"
+        ],
+        "expected_tools": [
+          "calculator"
+        ],
+        "steps": 2,
+        "models_used": [
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 1.0,
+          "trajectory": 1.0,
+          "composite": 1.0
+        },
+        "passed": true,
+        "cost_usd": 3.6e-05,
+        "latency_ms": 2007.69
+      },
+      {
+        "task_id": "med_10",
+        "category": "medium",
+        "question": "Look up in the knowledge base: What is the average distance from Earth to Mars?",
+        "expected": "225 million kilometers",
+        "actual": "The average distance from Earth to Mars is approximately 225\u202fmillion kilometers.",
+        "tools_used": [
+          "knowledge_lookup"
+        ],
+        "expected_tools": [
+          "knowledge_lookup"
+        ],
+        "steps": 2,
+        "models_used": [
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 1.0,
+          "trajectory": 1.0,
+          "composite": 1.0
+        },
+        "passed": true,
+        "cost_usd": 3.1e-05,
+        "latency_ms": 1752.57
+      },
+      {
+        "task_id": "hard_01",
+        "category": "hard",
+        "question": "Step by step, calculate the total token cost for processing 2,500,000 input tokens and 800,000 output tokens on a model priced at $0.59 per 1M input and $0.79 per 1M output tokens.",
+        "expected": "2.107",
+        "actual": "$2.107",
+        "tools_used": [
+          "calculator"
+        ],
+        "expected_tools": [
+          "calculator"
+        ],
+        "steps": 2,
+        "models_used": [
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 1.0,
+          "trajectory": 1.0,
+          "composite": 1.0
+        },
+        "passed": true,
+        "cost_usd": 4.2e-05,
+        "latency_ms": 2031.54
+      },
+      {
+        "task_id": "hard_02",
+        "category": "hard",
+        "question": "Execute Python code using python_repl: calculate the sum of all prime numbers between 10 and 30.",
+        "expected": "112",
+        "actual": "No answer produced",
+        "tools_used": [],
+        "expected_tools": [
+          "python_repl"
+        ],
+        "steps": 5,
+        "models_used": [
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b"
+        ],
+        "scores": {
+          "answer": 0.0,
+          "tools": 0.0,
+          "trajectory": 0.4,
+          "composite": 0.06
+        },
+        "passed": false,
+        "cost_usd": 0.000145,
+        "latency_ms": 5417.51
+      },
+      {
+        "task_id": "hard_03",
+        "category": "hard",
+        "question": "First lookup the Q3 revenue in the knowledge base, then use the calculator to compute what a 20% tax deduction on that revenue would leave as net revenue.",
+        "expected": "11.36",
+        "actual": "The net revenue after a 20% tax deduction on the Q3 2026 revenue of $14.2\u202fmillion is **$11.36\u202fmillion**.",
+        "tools_used": [
+          "knowledge_lookup",
+          "knowledge_lookup",
+          "calculator"
+        ],
+        "expected_tools": [
+          "knowledge_lookup",
+          "calculator"
+        ],
+        "steps": 4,
+        "models_used": [
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 1.0,
+          "trajectory": 0.8,
+          "composite": 0.97
+        },
+        "passed": true,
+        "cost_usd": 8.1e-05,
+        "latency_ms": 3930.0
+      },
+      {
+        "task_id": "hard_04",
+        "category": "hard",
+        "question": "Write a python function `def fib(n):` using python_repl that computes the 12th Fibonacci number (where fib(1)=1, fib(2)=1). What is fib(12)?",
+        "expected": "144",
+        "actual": "144",
+        "tools_used": [],
+        "expected_tools": [
+          "python_repl"
+        ],
+        "steps": 4,
+        "models_used": [
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 0.0,
+          "trajectory": 0.6,
+          "composite": 0.69
+        },
+        "passed": false,
+        "cost_usd": 0.000117,
+        "latency_ms": 4192.16
+      },
+      {
+        "task_id": "hard_05",
+        "category": "hard",
+        "question": "Step by step reasoning: A server cluster has 8 nodes each handling 650 req/sec. If incoming traffic spikes by 35%, how many total requests per second must the cluster handle? Calculate the exact number.",
+        "expected": "7020",
+        "actual": "7,020 requests per second.",
+        "tools_used": [
+          "calculator"
+        ],
+        "expected_tools": [
+          "calculator"
+        ],
+        "steps": 2,
+        "models_used": [
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 1.0,
+          "trajectory": 1.0,
+          "composite": 1.0
+        },
+        "passed": true,
+        "cost_usd": 3.5e-05,
+        "latency_ms": 2363.36
+      },
+      {
+        "task_id": "hard_06",
+        "category": "hard",
+        "question": "Look up the population of Paris in the knowledge store, then calculate how many people that would be if the population grew by 15%.",
+        "expected": "2.415",
+        "actual": "Approximately 2.415\u202fmillion people.",
+        "tools_used": [
+          "knowledge_lookup",
+          "knowledge_lookup"
+        ],
+        "expected_tools": [
+          "knowledge_lookup",
+          "calculator"
+        ],
+        "steps": 3,
+        "models_used": [
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 0.67,
+          "trajectory": 1.0,
+          "composite": 0.917
+        },
+        "passed": true,
+        "cost_usd": 5.5e-05,
+        "latency_ms": 3314.79
+      },
+      {
+        "task_id": "hard_07",
+        "category": "hard",
+        "question": "Using python_repl, count how many occurrences of the letter 'e' exist in this string: 'distributed asynchronous microservices architecture'.",
+        "expected": "7",
+        "actual": "No answer produced",
+        "tools_used": [],
+        "expected_tools": [
+          "python_repl"
+        ],
+        "steps": 5,
+        "models_used": [
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b"
+        ],
+        "scores": {
+          "answer": 0.0,
+          "tools": 0.0,
+          "trajectory": 0.4,
+          "composite": 0.06
+        },
+        "passed": false,
+        "cost_usd": 0.000117,
+        "latency_ms": 10867.64
+      },
+      {
+        "task_id": "hard_08",
+        "category": "hard",
+        "question": "Solve this multi-step equation: If x = (144 / 12) + 25, and y = x * 3 - 15, what is the value of y?",
+        "expected": "96",
+        "actual": "96",
+        "tools_used": [
+          "calculator"
+        ],
+        "expected_tools": [
+          "calculator"
+        ],
+        "steps": 2,
+        "models_used": [
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 1.0,
+          "trajectory": 1.0,
+          "composite": 1.0
+        },
+        "passed": true,
+        "cost_usd": 3.3e-05,
+        "latency_ms": 1986.63
+      },
+      {
+        "task_id": "hard_09",
+        "category": "hard",
+        "question": "Look up the pricing for llama_70b in the knowledge base, then calculate the cost in USD of 5 million input tokens.",
+        "expected": "2.95",
+        "actual": "$2.95 USD.",
+        "tools_used": [
+          "knowledge_lookup",
+          "knowledge_lookup",
+          "calculator"
+        ],
+        "expected_tools": [
+          "knowledge_lookup",
+          "calculator"
+        ],
+        "steps": 4,
+        "models_used": [
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 1.0,
+          "trajectory": 0.8,
+          "composite": 0.97
+        },
+        "passed": true,
+        "cost_usd": 7.9e-05,
+        "latency_ms": 12175.79
+      },
+      {
+        "task_id": "hard_10",
+        "category": "hard",
+        "question": "Step by step logic & code analysis: Analyze a binary search tree with elements [3, 7, 9, 12, 18, 24, 30]. What is the maximum number of comparisons needed to find or confirm absence of any element?",
+        "expected": "3",
+        "actual": "No answer produced",
+        "tools_used": [],
+        "expected_tools": [],
+        "steps": 5,
+        "models_used": [
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b",
+          "openai/gpt-oss-20b"
+        ],
+        "scores": {
+          "answer": 0.0,
+          "tools": 1.0,
+          "trajectory": 0.4,
+          "composite": 0.31
+        },
+        "passed": false,
+        "cost_usd": 0.000236,
+        "latency_ms": 29280.81
       }
     ]
   },
   "always_strong": {
     "policy": "always_strong",
     "total_tasks": 30,
-    "passed_tasks": 6,
-    "pass_rate_pct": 20.0,
+    "passed_tasks": 22,
+    "pass_rate_pct": 73.33,
     "category_breakdown": {
       "easy": {
-        "passed": 5,
+        "passed": 10,
         "total": 10,
-        "pass_rate_pct": 50.0
+        "pass_rate_pct": 100.0
       },
       "medium": {
-        "passed": 1,
+        "passed": 6,
         "total": 10,
-        "pass_rate_pct": 10.0
+        "pass_rate_pct": 60.0
       },
       "hard": {
-        "passed": 0,
+        "passed": 6,
         "total": 10,
-        "pass_rate_pct": 0.0
+        "pass_rate_pct": 60.0
       }
     },
-    "total_cost_usd": 0.004411,
-    "avg_cost_per_task_usd": 0.000147,
-    "cost_per_1000_tasks_usd": 0.147,
-    "avg_latency_ms": 31.38,
-    "elapsed_seconds": 0.95,
+    "total_cost_usd": 0.010031,
+    "avg_cost_per_task_usd": 0.0003344,
+    "cost_per_1000_tasks_usd": 0.3344,
+    "avg_latency_ms": 1598.66,
+    "elapsed_seconds": 149.68,
     "task_details": [
       {
         "task_id": "easy_01",
         "category": "easy",
         "question": "What is the capital city of France?",
         "expected": "Paris",
-        "actual": "The capital of France is Paris.",
+        "actual": "Paris",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
           "answer": 1.0,
@@ -777,20 +854,20 @@
           "composite": 1.0
         },
         "passed": true,
-        "cost_usd": 0.000114,
-        "latency_ms": 27.95
+        "cost_usd": 0.000213,
+        "latency_ms": 1001.88
       },
       {
         "task_id": "easy_02",
         "category": "easy",
         "question": "What is the capital city of Japan?",
         "expected": "Tokyo",
-        "actual": "The capital of Japan is Tokyo.",
+        "actual": "Tokyo.",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
           "answer": 1.0,
@@ -799,42 +876,42 @@
           "composite": 1.0
         },
         "passed": true,
-        "cost_usd": 0.000114,
-        "latency_ms": 20.24
+        "cost_usd": 0.000201,
+        "latency_ms": 832.37
       },
       {
         "task_id": "easy_03",
         "category": "easy",
         "question": "Define what an API stands for in software engineering.",
         "expected": "Application Programming Interface",
-        "actual": "Comprehensive analysis: Regarding 'Define what an API stands for in software engineering.', here is a structured evaluation with verified nuances and multi-step clarity.",
+        "actual": "In software engineering, **API** stands for **Application Programming Interface**. An API is a set of defined rules, protocols, and tools that allows different software applications or components to communicate with each other. It specifies how software components should interact, exposing certain functionalities (such as functions, methods, endpoints, or data structures) while hiding the underlying implementation details, thereby enabling developers to build on existing services, integrate disparate systems, and create modular, reusable code.",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
-          "answer": 0.0,
+          "answer": 1.0,
           "tools": 1.0,
           "trajectory": 1.0,
-          "composite": 0.4
+          "composite": 1.0
         },
-        "passed": false,
-        "cost_usd": 0.000145,
-        "latency_ms": 33.52
+        "passed": true,
+        "cost_usd": 0.000266,
+        "latency_ms": 1263.45
       },
       {
         "task_id": "easy_04",
         "category": "easy",
         "question": "What is the capital of Germany?",
         "expected": "Berlin",
-        "actual": "The capital of Germany is Berlin.",
+        "actual": "Berlin",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
           "answer": 1.0,
@@ -843,64 +920,64 @@
           "composite": 1.0
         },
         "passed": true,
-        "cost_usd": 0.000114,
-        "latency_ms": 30.05
+        "cost_usd": 0.000212,
+        "latency_ms": 1096.09
       },
       {
         "task_id": "easy_05",
         "category": "easy",
         "question": "Translate the greeting 'Hello, how are you?' into Spanish.",
         "expected": "Hola",
-        "actual": "Comprehensive analysis: Regarding 'Translate the greeting 'Hello, how are you?' into Spanish.', here is a structured evaluation with verified nuances and multi-step clarity.",
+        "actual": "Hola, \u00bfc\u00f3mo est\u00e1s?",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
-          "answer": 0.0,
+          "answer": 1.0,
           "tools": 1.0,
           "trajectory": 1.0,
-          "composite": 0.4
+          "composite": 1.0
         },
-        "passed": false,
-        "cost_usd": 0.000146,
-        "latency_ms": 24.99
+        "passed": true,
+        "cost_usd": 0.000199,
+        "latency_ms": 1270.8
       },
       {
         "task_id": "easy_06",
         "category": "easy",
         "question": "Classify the sentiment of: 'I love this product, it works brilliantly!'",
         "expected": "positive",
-        "actual": "Comprehensive analysis: Regarding 'Classify the sentiment of: 'I love this product, it works brilliantly!'', here is a structured evaluation with verified nuances and multi-step clarity.",
+        "actual": "Positive sentiment.",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
-          "answer": 0.0,
+          "answer": 1.0,
           "tools": 1.0,
           "trajectory": 1.0,
-          "composite": 0.4
+          "composite": 1.0
         },
-        "passed": false,
-        "cost_usd": 0.00015,
-        "latency_ms": 28.22
+        "passed": true,
+        "cost_usd": 0.000195,
+        "latency_ms": 1651.85
       },
       {
         "task_id": "easy_07",
         "category": "easy",
         "question": "What is the capital city of Australia?",
         "expected": "Canberra",
-        "actual": "The capital of Australia is Canberra.",
+        "actual": "The capital city of Australia is Canberra.",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
           "answer": 1.0,
@@ -909,42 +986,20 @@
           "composite": 1.0
         },
         "passed": true,
-        "cost_usd": 0.000116,
-        "latency_ms": 33.16
+        "cost_usd": 0.000193,
+        "latency_ms": 1203.4
       },
       {
         "task_id": "easy_08",
         "category": "easy",
         "question": "What does HTTP stand for?",
         "expected": "Hypertext Transfer Protocol",
-        "actual": "Comprehensive analysis: Regarding 'What does HTTP stand for?', here is a structured evaluation with verified nuances and multi-step clarity.",
+        "actual": "HTTP stands for **HyperText Transfer Protocol**.",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 1.0,
-          "trajectory": 1.0,
-          "composite": 0.4
-        },
-        "passed": false,
-        "cost_usd": 0.000134,
-        "latency_ms": 29.82
-      },
-      {
-        "task_id": "easy_09",
-        "category": "easy",
-        "question": "Extract the email address from this message: 'Please reach out at support@gateway.io for help.'",
-        "expected": "support@gateway.io",
-        "actual": "Comprehensive analysis: Regarding 'Extract the email address from this message: 'Please reach out at support@gateway.io for help.'', here is a structured evaluation with verified nuances and multi-step clarity.",
-        "tools_used": [],
-        "expected_tools": [],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
           "answer": 1.0,
@@ -953,44 +1008,165 @@
           "composite": 1.0
         },
         "passed": true,
-        "cost_usd": 0.000159,
-        "latency_ms": 36.84
+        "cost_usd": 0.000188,
+        "latency_ms": 1097.98
+      },
+      {
+        "task_id": "easy_09",
+        "category": "easy",
+        "question": "Extract the email address from this message: 'Please reach out at support@gateway.io for help.'",
+        "expected": "support@gateway.io",
+        "actual": "support@gateway.io",
+        "tools_used": [],
+        "expected_tools": [],
+        "steps": 1,
+        "models_used": [
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 1.0,
+          "trajectory": 1.0,
+          "composite": 1.0
+        },
+        "passed": true,
+        "cost_usd": 0.000192,
+        "latency_ms": 1052.21
       },
       {
         "task_id": "easy_10",
         "category": "easy",
         "question": "What is the chemical symbol for Gold?",
         "expected": "Au",
-        "actual": "Comprehensive analysis: Regarding 'What is the chemical symbol for Gold?', here is a structured evaluation with verified nuances and multi-step clarity.",
+        "actual": "The chemical symbol for Gold is **Au**.",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
-          "answer": 0.0,
+          "answer": 1.0,
           "tools": 1.0,
           "trajectory": 1.0,
-          "composite": 0.4
+          "composite": 1.0
         },
-        "passed": false,
-        "cost_usd": 0.000139,
-        "latency_ms": 31.21
+        "passed": true,
+        "cost_usd": 0.000193,
+        "latency_ms": 1047.9
       },
       {
         "task_id": "med_01",
         "category": "medium",
         "question": "Use the calculator tool to calculate: 125 * 84",
         "expected": "10500",
-        "actual": "Thought: I will use the calculator tool or compute directly.\nResult: 10500",
+        "actual": "125\u202f\u00d7\u202f84\u202f=\u202f10,500.",
+        "tools_used": [
+          "calculator"
+        ],
+        "expected_tools": [
+          "calculator"
+        ],
+        "steps": 2,
+        "models_used": [
+          "openai/gpt-oss-120b",
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 1.0,
+          "trajectory": 1.0,
+          "composite": 1.0
+        },
+        "passed": true,
+        "cost_usd": 0.000429,
+        "latency_ms": 1914.34
+      },
+      {
+        "task_id": "med_02",
+        "category": "medium",
+        "question": "Look up our internal knowledge base: What was the reported Q3 revenue?",
+        "expected": "$14.2 Million",
+        "actual": "The reported Q3 revenue was $2.45\u202fbillion.",
+        "tools_used": [],
+        "expected_tools": [
+          "knowledge_lookup"
+        ],
+        "steps": 1,
+        "models_used": [
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 0.0,
+          "tools": 0.0,
+          "trajectory": 1.0,
+          "composite": 0.15
+        },
+        "passed": false,
+        "cost_usd": 0.000274,
+        "latency_ms": 1201.72
+      },
+      {
+        "task_id": "med_03",
+        "category": "medium",
+        "question": "Calculate the arithmetic expression: (4500 / 15) + 380",
+        "expected": "680",
+        "actual": "660.",
         "tools_used": [],
         "expected_tools": [
           "calculator"
         ],
         "steps": 1,
         "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 0.71,
+          "tools": 0.0,
+          "trajectory": 1.0,
+          "composite": 0.576
+        },
+        "passed": false,
+        "cost_usd": 0.000234,
+        "latency_ms": 1510.9
+      },
+      {
+        "task_id": "med_04",
+        "category": "medium",
+        "question": "Query the knowledge base to find the 90-day server uptime percentage of the European cluster.",
+        "expected": "99.982%",
+        "actual": "The 90\u2011day server uptime percentage for the European cluster is 99.92\u202f%.",
+        "tools_used": [],
+        "expected_tools": [
+          "knowledge_lookup"
+        ],
+        "steps": 1,
+        "models_used": [
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 0.0,
+          "tools": 0.0,
+          "trajectory": 1.0,
+          "composite": 0.15
+        },
+        "passed": false,
+        "cost_usd": 0.000254,
+        "latency_ms": 1514.25
+      },
+      {
+        "task_id": "med_05",
+        "category": "medium",
+        "question": "Compute using calculator: 2 ** 10",
+        "expected": "1024",
+        "actual": "1024",
+        "tools_used": [],
+        "expected_tools": [
+          "calculator"
+        ],
+        "steps": 1,
+        "models_used": [
+          "openai/gpt-oss-120b"
         ],
         "scores": {
           "answer": 1.0,
@@ -999,118 +1175,22 @@
           "composite": 0.75
         },
         "passed": true,
-        "cost_usd": 0.000124,
-        "latency_ms": 33.06
-      },
-      {
-        "task_id": "med_02",
-        "category": "medium",
-        "question": "Look up our internal knowledge base: What was the reported Q3 revenue?",
-        "expected": "$14.2 Million",
-        "actual": "Comprehensive analysis: Regarding 'Look up our internal knowledge base: What was the reported Q3 revenue?', here is a structured evaluation with verified nuances and multi-step clarity.",
-        "tools_used": [],
-        "expected_tools": [
-          "knowledge_lookup"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.00015,
-        "latency_ms": 34.19
-      },
-      {
-        "task_id": "med_03",
-        "category": "medium",
-        "question": "Calculate the arithmetic expression: (4500 / 15) + 380",
-        "expected": "680",
-        "actual": "Thought: I will use the calculator tool or compute directly.\nResult: 300.0",
-        "tools_used": [],
-        "expected_tools": [
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.000126,
-        "latency_ms": 35.68
-      },
-      {
-        "task_id": "med_04",
-        "category": "medium",
-        "question": "Query the knowledge base to find the 90-day server uptime percentage of the European cluster.",
-        "expected": "99.982%",
-        "actual": "Comprehensive analysis: Regarding 'Query the knowledge base to find the 90-day server uptime percentage of the European cluster.', here is a structured evaluation with verified nuances and multi-step clarity.",
-        "tools_used": [],
-        "expected_tools": [
-          "knowledge_lookup"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.000158,
-        "latency_ms": 27.67
-      },
-      {
-        "task_id": "med_05",
-        "category": "medium",
-        "question": "Compute using calculator: 2 ** 10",
-        "expected": "1024",
-        "actual": "Comprehensive analysis: Regarding 'Compute using calculator: 2 ** 10', here is a structured evaluation with verified nuances and multi-step clarity.",
-        "tools_used": [],
-        "expected_tools": [
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.000137,
-        "latency_ms": 27.25
+        "cost_usd": 0.000241,
+        "latency_ms": 1226.92
       },
       {
         "task_id": "med_06",
         "category": "medium",
         "question": "Query the knowledge base for the pricing of llama_8b model.",
         "expected": "$0.05",
-        "actual": "Comprehensive analysis: Regarding 'Query the knowledge base for the pricing of llama_8b model.', here is a structured evaluation with verified nuances and multi-step clarity.",
+        "actual": "The llama_8b model is priced at $0.12 per 1,000 tokens.",
         "tools_used": [],
         "expected_tools": [
           "knowledge_lookup"
         ],
         "steps": 1,
         "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
           "answer": 0.0,
@@ -1119,335 +1199,148 @@
           "composite": 0.15
         },
         "passed": false,
-        "cost_usd": 0.000146,
-        "latency_ms": 42.4
+        "cost_usd": 0.000327,
+        "latency_ms": 1276.34
       },
       {
         "task_id": "med_07",
         "category": "medium",
         "question": "Calculate the total cost of buying 15 items at $34.50 each.",
         "expected": "517.5",
-        "actual": "Comprehensive analysis: Regarding 'Calculate the total cost of buying 15 items at $34.50 each.', here is a structured evaluation with verified nuances and multi-step clarity.",
+        "actual": "$517.50.",
         "tools_used": [],
         "expected_tools": [
           "calculator"
         ],
         "steps": 1,
         "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
-          "answer": 0.0,
+          "answer": 1.0,
           "tools": 0.0,
           "trajectory": 1.0,
-          "composite": 0.15
+          "composite": 0.75
         },
-        "passed": false,
-        "cost_usd": 0.000146,
-        "latency_ms": 35.89
+        "passed": true,
+        "cost_usd": 0.000239,
+        "latency_ms": 1100.8
       },
       {
         "task_id": "med_08",
         "category": "medium",
         "question": "Look up in knowledge base: Who is the principal AI systems architect?",
         "expected": "Alex Chen",
-        "actual": "Comprehensive analysis: Regarding 'Look up in knowledge base: Who is the principal AI systems architect?', here is a structured evaluation with verified nuances and multi-step clarity.",
-        "tools_used": [],
+        "actual": "The principal AI systems architect is Alex Chen.",
+        "tools_used": [
+          "knowledge_lookup"
+        ],
         "expected_tools": [
           "knowledge_lookup"
         ],
-        "steps": 1,
+        "steps": 2,
         "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b",
+          "openai/gpt-oss-120b"
         ],
         "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
+          "answer": 1.0,
+          "tools": 1.0,
           "trajectory": 1.0,
-          "composite": 0.15
+          "composite": 1.0
         },
-        "passed": false,
-        "cost_usd": 0.00015,
-        "latency_ms": 31.64
+        "passed": true,
+        "cost_usd": 0.000456,
+        "latency_ms": 2539.25
       },
       {
         "task_id": "med_09",
         "category": "medium",
         "question": "Evaluate this math equation: 9876 - 4321 + 555",
         "expected": "6110",
-        "actual": "Thought: I will use the calculator tool or compute directly.\nResult: 5555",
+        "actual": "6110",
         "tools_used": [],
         "expected_tools": [
           "calculator"
         ],
         "steps": 1,
         "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
-          "answer": 0.09,
+          "answer": 1.0,
           "tools": 0.0,
           "trajectory": 1.0,
-          "composite": 0.204
+          "composite": 0.75
         },
-        "passed": false,
-        "cost_usd": 0.000124,
-        "latency_ms": 32.36
+        "passed": true,
+        "cost_usd": 0.00027,
+        "latency_ms": 1088.43
       },
       {
         "task_id": "med_10",
         "category": "medium",
         "question": "Look up in the knowledge base: What is the average distance from Earth to Mars?",
         "expected": "225 million kilometers",
-        "actual": "Comprehensive analysis: Regarding 'Look up in the knowledge base: What is the average distance from Earth to Mars?', here is a structured evaluation with verified nuances and multi-step clarity.",
+        "actual": "The average distance from Earth to Mars is about 225 million kilometers (approximately 140 million miles).",
         "tools_used": [],
         "expected_tools": [
           "knowledge_lookup"
         ],
         "steps": 1,
         "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
-          "answer": 0.0,
+          "answer": 1.0,
           "tools": 0.0,
           "trajectory": 1.0,
-          "composite": 0.15
+          "composite": 0.75
         },
-        "passed": false,
-        "cost_usd": 0.000153,
-        "latency_ms": 16.93
+        "passed": true,
+        "cost_usd": 0.000263,
+        "latency_ms": 1301.3
       },
       {
         "task_id": "hard_01",
         "category": "hard",
         "question": "Step by step, calculate the total token cost for processing 2,500,000 input tokens and 800,000 output tokens on a model priced at $0.59 per 1M input and $0.79 per 1M output tokens.",
         "expected": "2.107",
-        "actual": "Comprehensive analysis: Regarding 'Step by step, calculate the total token cost for processing 2,500,000 input tokens and 800,000 output tokens on a model priced at $0.59 per 1M input and $0.79 per 1M output tokens.', here is a structured evaluation with verified nuances and multi-step clarity.",
+        "actual": "$2.107 total token cost.",
         "tools_used": [],
         "expected_tools": [
           "calculator"
         ],
         "steps": 1,
         "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
-          "answer": 0.0,
+          "answer": 1.0,
           "tools": 0.0,
           "trajectory": 1.0,
-          "composite": 0.15
+          "composite": 0.75
         },
-        "passed": false,
-        "cost_usd": 0.000188,
-        "latency_ms": 33.88
+        "passed": true,
+        "cost_usd": 0.000434,
+        "latency_ms": 2441.16
       },
       {
         "task_id": "hard_02",
         "category": "hard",
         "question": "Execute Python code using python_repl: calculate the sum of all prime numbers between 10 and 30.",
         "expected": "112",
-        "actual": "```python\ndef solution(data):\n    # Optimized O(n) implementation\n    return [x for x in data if x % 2 == 0]\n```\nExplanation: Filtered even integers.",
-        "tools_used": [],
+        "actual": "",
+        "tools_used": [
+          "python_repl"
+        ],
         "expected_tools": [
           "python_repl"
         ],
-        "steps": 1,
+        "steps": 2,
         "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.000147,
-        "latency_ms": 33.96
-      },
-      {
-        "task_id": "hard_03",
-        "category": "hard",
-        "question": "First lookup the Q3 revenue in the knowledge base, then use the calculator to compute what a 20% tax deduction on that revenue would leave as net revenue.",
-        "expected": "11.36",
-        "actual": "Comprehensive analysis: Regarding 'First lookup the Q3 revenue in the knowledge base, then use the calculator to compute what a 20% tax deduction on that revenue would leave as net revenue.', here is a structured evaluation with verified nuances and multi-step clarity.",
-        "tools_used": [],
-        "expected_tools": [
-          "knowledge_lookup",
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.000179,
-        "latency_ms": 33.18
-      },
-      {
-        "task_id": "hard_04",
-        "category": "hard",
-        "question": "Write a python function `def fib(n):` using python_repl that computes the 12th Fibonacci number (where fib(1)=1, fib(2)=1). What is fib(12)?",
-        "expected": "144",
-        "actual": "```python\ndef solution(data):\n    # Optimized O(n) implementation\n    return [x for x in data if x % 2 == 0]\n```\nExplanation: Filtered even integers.",
-        "tools_used": [],
-        "expected_tools": [
-          "python_repl"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.000153,
-        "latency_ms": 32.26
-      },
-      {
-        "task_id": "hard_05",
-        "category": "hard",
-        "question": "Step by step reasoning: A server cluster has 8 nodes each handling 650 req/sec. If incoming traffic spikes by 35%, how many total requests per second must the cluster handle? Calculate the exact number.",
-        "expected": "7020",
-        "actual": "Comprehensive analysis: Regarding 'Step by step reasoning: A server cluster has 8 nodes each handling 650 req/sec. If incoming traffic spikes by 35%, how many total requests per second must the cluster handle? Calculate the exact number.', here is a structured evaluation with verified nuances and multi-step clarity.",
-        "tools_used": [],
-        "expected_tools": [
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.000196,
-        "latency_ms": 33.11
-      },
-      {
-        "task_id": "hard_06",
-        "category": "hard",
-        "question": "Look up the population of Paris in the knowledge store, then calculate how many people that would be if the population grew by 15%.",
-        "expected": "2.415",
-        "actual": "Comprehensive analysis: Regarding 'Look up the population of Paris in the knowledge store, then calculate how many people that would be if the population grew by 15%.', here is a structured evaluation with verified nuances and multi-step clarity.",
-        "tools_used": [],
-        "expected_tools": [
-          "knowledge_lookup",
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.000171,
-        "latency_ms": 31.8
-      },
-      {
-        "task_id": "hard_07",
-        "category": "hard",
-        "question": "Using python_repl, count how many occurrences of the letter 'e' exist in this string: 'distributed asynchronous microservices architecture'.",
-        "expected": "7",
-        "actual": "Comprehensive analysis: Regarding 'Using python_repl, count how many occurrences of the letter 'e' exist in this string: 'distributed asynchronous microservices architecture'.', here is a structured evaluation with verified nuances and multi-step clarity.",
-        "tools_used": [],
-        "expected_tools": [
-          "python_repl"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.000174,
-        "latency_ms": 31.45
-      },
-      {
-        "task_id": "hard_08",
-        "category": "hard",
-        "question": "Solve this multi-step equation: If x = (144 / 12) + 25, and y = x * 3 - 15, what is the value of y?",
-        "expected": "96",
-        "actual": "Thought: I will use the calculator tool or compute directly.\nResult: 12.0",
-        "tools_used": [],
-        "expected_tools": [
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.000132,
-        "latency_ms": 35.43
-      },
-      {
-        "task_id": "hard_09",
-        "category": "hard",
-        "question": "Look up the pricing for llama_70b in the knowledge base, then calculate the cost in USD of 5 million input tokens.",
-        "expected": "2.95",
-        "actual": "Comprehensive analysis: Regarding 'Look up the pricing for llama_70b in the knowledge base, then calculate the cost in USD of 5 million input tokens.', here is a structured evaluation with verified nuances and multi-step clarity.",
-        "tools_used": [],
-        "expected_tools": [
-          "knowledge_lookup",
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.000165,
-        "latency_ms": 30.63
-      },
-      {
-        "task_id": "hard_10",
-        "category": "hard",
-        "question": "Step by step logic & code analysis: Analyze a binary search tree with elements [3, 7, 9, 12, 18, 24, 30]. What is the maximum number of comparisons needed to find or confirm absence of any element?",
-        "expected": "3",
-        "actual": "```python\ndef solution(data):\n    # Optimized O(n) implementation\n    return [x for x in data if x % 2 == 0]\n```\nExplanation: Filtered even integers.",
-        "tools_used": [],
-        "expected_tools": [],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b",
+          "openai/gpt-oss-120b"
         ],
         "scores": {
           "answer": 0.0,
@@ -1456,50 +1349,248 @@
           "composite": 0.4
         },
         "passed": false,
-        "cost_usd": 0.000161,
-        "latency_ms": 32.76
+        "cost_usd": 0.000787,
+        "latency_ms": 2729.48
+      },
+      {
+        "task_id": "hard_03",
+        "category": "hard",
+        "question": "First lookup the Q3 revenue in the knowledge base, then use the calculator to compute what a 20% tax deduction on that revenue would leave as net revenue.",
+        "expected": "11.36",
+        "actual": "After a 20% tax deduction, the net revenue is $11.36\u202fMillion.",
+        "tools_used": [
+          "knowledge_lookup"
+        ],
+        "expected_tools": [
+          "knowledge_lookup",
+          "calculator"
+        ],
+        "steps": 2,
+        "models_used": [
+          "openai/gpt-oss-120b",
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 0.67,
+          "trajectory": 1.0,
+          "composite": 0.917
+        },
+        "passed": true,
+        "cost_usd": 0.000632,
+        "latency_ms": 2446.9
+      },
+      {
+        "task_id": "hard_04",
+        "category": "hard",
+        "question": "Write a python function `def fib(n):` using python_repl that computes the 12th Fibonacci number (where fib(1)=1, fib(2)=1). What is fib(12)?",
+        "expected": "144",
+        "actual": "144",
+        "tools_used": [],
+        "expected_tools": [
+          "python_repl"
+        ],
+        "steps": 2,
+        "models_used": [
+          "openai/gpt-oss-120b",
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 0.0,
+          "trajectory": 1.0,
+          "composite": 0.75
+        },
+        "passed": true,
+        "cost_usd": 0.000493,
+        "latency_ms": 2749.63
+      },
+      {
+        "task_id": "hard_05",
+        "category": "hard",
+        "question": "Step by step reasoning: A server cluster has 8 nodes each handling 650 req/sec. If incoming traffic spikes by 35%, how many total requests per second must the cluster handle? Calculate the exact number.",
+        "expected": "7020",
+        "actual": "The cluster must handle 7,020 requests per second after a 35% traffic spike.",
+        "tools_used": [],
+        "expected_tools": [
+          "calculator"
+        ],
+        "steps": 1,
+        "models_used": [
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 0.0,
+          "trajectory": 1.0,
+          "composite": 0.75
+        },
+        "passed": true,
+        "cost_usd": 0.00035,
+        "latency_ms": 1690.82
+      },
+      {
+        "task_id": "hard_06",
+        "category": "hard",
+        "question": "Look up the population of Paris in the knowledge store, then calculate how many people that would be if the population grew by 15%.",
+        "expected": "2.415",
+        "actual": "The population of Paris after a 15% increase would be approximately 2,300,000 people.",
+        "tools_used": [],
+        "expected_tools": [
+          "knowledge_lookup",
+          "calculator"
+        ],
+        "steps": 1,
+        "models_used": [
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 0.0,
+          "tools": 0.0,
+          "trajectory": 1.0,
+          "composite": 0.15
+        },
+        "passed": false,
+        "cost_usd": 0.00038,
+        "latency_ms": 1502.75
+      },
+      {
+        "task_id": "hard_07",
+        "category": "hard",
+        "question": "Using python_repl, count how many occurrences of the letter 'e' exist in this string: 'distributed asynchronous microservices architecture'.",
+        "expected": "7",
+        "actual": "",
+        "tools_used": [],
+        "expected_tools": [
+          "python_repl"
+        ],
+        "steps": 2,
+        "models_used": [
+          "openai/gpt-oss-120b",
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 0.0,
+          "tools": 0.0,
+          "trajectory": 1.0,
+          "composite": 0.15
+        },
+        "passed": false,
+        "cost_usd": 0.000385,
+        "latency_ms": 2425.98
+      },
+      {
+        "task_id": "hard_08",
+        "category": "hard",
+        "question": "Solve this multi-step equation: If x = (144 / 12) + 25, and y = x * 3 - 15, what is the value of y?",
+        "expected": "96",
+        "actual": "96",
+        "tools_used": [],
+        "expected_tools": [
+          "calculator"
+        ],
+        "steps": 1,
+        "models_used": [
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 0.0,
+          "trajectory": 1.0,
+          "composite": 0.75
+        },
+        "passed": true,
+        "cost_usd": 0.000219,
+        "latency_ms": 1121.13
+      },
+      {
+        "task_id": "hard_09",
+        "category": "hard",
+        "question": "Look up the pricing for llama_70b in the knowledge base, then calculate the cost in USD of 5 million input tokens.",
+        "expected": "2.95",
+        "actual": "The cost for 5 million input tokens with llama_70b is $3,750.",
+        "tools_used": [],
+        "expected_tools": [
+          "knowledge_lookup",
+          "calculator"
+        ],
+        "steps": 1,
+        "models_used": [
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 0.0,
+          "tools": 0.0,
+          "trajectory": 1.0,
+          "composite": 0.15
+        },
+        "passed": false,
+        "cost_usd": 0.000336,
+        "latency_ms": 1552.33
+      },
+      {
+        "task_id": "hard_10",
+        "category": "hard",
+        "question": "Step by step logic & code analysis: Analyze a binary search tree with elements [3, 7, 9, 12, 18, 24, 30]. What is the maximum number of comparisons needed to find or confirm absence of any element?",
+        "expected": "3",
+        "actual": "**Step\u2011by\u2011step reasoning**\n\n1. **What we are asked**  \n   - We have a binary search tree (BST) that stores the seven keys  \n     \\[3, 7, 9, 12, 18, 24, 30\\].  \n   - When we search for a key (whether it is present or not) we compare the key we are looking for with the key stored at the current node, then move left or right.  \n   - The number of comparisons in the worst case equals the number of nodes visited on the longest root\u2011to\u2011leaf path, i.e. the **height** of the tree (counting the root as level\u202f1).\n\n2. **Height of a perfectly balanced BST with 7 nodes**  \n   - A balanced BST of size *n* has height  \n     \\[\n     h = \\lceil \\log_2 (n+1) \\rceil .\n     \\]  \n   - For *n*\u202f=\u202f7:  \n     \\[\n     h = \\lceil \\log_2 (7+1) \\rceil = \\lceil \\log_2 8 \\rceil = \\lceil 3 \\rceil = 3 .\n     \\]  \n   - Thus any search will visit at most three nodes, performing three key comparisons.\n\n3. **Why this is the maximum for the given set**  \n   - The seven keys can be arranged in a perfectly balanced BST (e.g., insert the median first, then recursively the medians of the left and right sub\u2011arrays).  \n   - In that arrangement the longest root\u2011to\u2011leaf path has three nodes, so three comparisons are sufficient even in the worst case (searching for the smallest, the largest, or a missing value).  \n   - No other BST built from the same set can have a *smaller* worst\u2011case number of comparisons, because a tree of height\u202f2 would hold at most \\(2^2-1 = 3\\) nodes, which is insufficient for seven keys. Therefore height\u202f3 is the minimal possible worst\u2011case height, and consequently the **maximum** number of comparisons needed for any search in an optimally balanced BST of these elements is **3**.\n\n4. **Code\u2011like illustration (pseudo\u2011code)**  \n\n```python\ndef bst_search(root, key):\n    \"\"\"Return True if key is found, False otherwise.\n       Counts comparisons performed.\"\"\"\n    comparisons = 0\n    node = root\n    while node is not None:\n        comparisons += 1               # compare key with node.key\n        if key == node.key:\n            return True, comparisons\n        elif key < node.key:\n            node = node.left\n        else:\n            node = node.right\n    # key not found\n    return False, comparisons\n```\n\nIf the tree is built as a balanced BST:\n\n```\n          12\n        /    \\\n       7      24\n      / \\    /  \\\n     3   9  18  30\n```\n\n- Searching for **3**, **30**, or a non\u2011existent value like **15** will traverse at most three nodes",
+        "tools_used": [],
+        "expected_tools": [],
+        "steps": 1,
+        "models_used": [
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 1.0,
+          "trajectory": 1.0,
+          "composite": 1.0
+        },
+        "passed": true,
+        "cost_usd": 0.000976,
+        "latency_ms": 3107.52
       }
     ]
   },
   "auto": {
     "policy": "auto",
     "total_tasks": 30,
-    "passed_tasks": 6,
-    "pass_rate_pct": 20.0,
+    "passed_tasks": 22,
+    "pass_rate_pct": 73.33,
     "category_breakdown": {
       "easy": {
-        "passed": 5,
+        "passed": 10,
         "total": 10,
-        "pass_rate_pct": 50.0
+        "pass_rate_pct": 100.0
       },
       "medium": {
-        "passed": 1,
+        "passed": 6,
         "total": 10,
-        "pass_rate_pct": 10.0
+        "pass_rate_pct": 60.0
       },
       "hard": {
-        "passed": 0,
+        "passed": 6,
         "total": 10,
-        "pass_rate_pct": 0.0
+        "pass_rate_pct": 60.0
       }
     },
-    "total_cost_usd": 0.0,
-    "avg_cost_per_task_usd": 0.0,
-    "cost_per_1000_tasks_usd": 0.0,
-    "avg_latency_ms": 11.13,
-    "elapsed_seconds": 0.34,
+    "total_cost_usd": 0.010486,
+    "avg_cost_per_task_usd": 0.0003495,
+    "cost_per_1000_tasks_usd": 0.3495,
+    "avg_latency_ms": 1664.63,
+    "elapsed_seconds": 151.62,
     "task_details": [
       {
         "task_id": "easy_01",
         "category": "easy",
         "question": "What is the capital city of France?",
         "expected": "Paris",
-        "actual": "The capital of France is Paris.",
+        "actual": "Paris",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
           "answer": 1.0,
@@ -1508,20 +1599,20 @@
           "composite": 1.0
         },
         "passed": true,
-        "cost_usd": 0.0,
-        "latency_ms": 14.08
+        "cost_usd": 0.000212,
+        "latency_ms": 1055.05
       },
       {
         "task_id": "easy_02",
         "category": "easy",
         "question": "What is the capital city of Japan?",
         "expected": "Tokyo",
-        "actual": "The capital of Japan is Tokyo.",
+        "actual": "Tokyo.",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
           "answer": 1.0,
@@ -1530,42 +1621,42 @@
           "composite": 1.0
         },
         "passed": true,
-        "cost_usd": 0.0,
-        "latency_ms": 12.74
+        "cost_usd": 0.000201,
+        "latency_ms": 1376.13
       },
       {
         "task_id": "easy_03",
         "category": "easy",
         "question": "Define what an API stands for in software engineering.",
         "expected": "Application Programming Interface",
-        "actual": "Brief answer: Response to 'Define what an API stands for in software engineering.'.",
+        "actual": "In software engineering, **API** stands for **Application Programming Interface**. An API is a set of defined rules, protocols, and tools that allows different software applications or components to communicate with each other. It specifies how software components should interact, exposing certain functionalities (such as functions, methods, endpoints, or data structures) while hiding the underlying implementation details, thereby enabling developers to build on existing services, integrate disparate systems, and create modular, reusable code.",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
-          "answer": 0.0,
+          "answer": 1.0,
           "tools": 1.0,
           "trajectory": 1.0,
-          "composite": 0.4
+          "composite": 1.0
         },
-        "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 9.49
+        "passed": true,
+        "cost_usd": 0.000266,
+        "latency_ms": 1013.96
       },
       {
         "task_id": "easy_04",
         "category": "easy",
         "question": "What is the capital of Germany?",
         "expected": "Berlin",
-        "actual": "The capital of Germany is Berlin.",
+        "actual": "Berlin",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
           "answer": 1.0,
@@ -1574,64 +1665,64 @@
           "composite": 1.0
         },
         "passed": true,
-        "cost_usd": 0.0,
-        "latency_ms": 12.34
+        "cost_usd": 0.000212,
+        "latency_ms": 1290.88
       },
       {
         "task_id": "easy_05",
         "category": "easy",
         "question": "Translate the greeting 'Hello, how are you?' into Spanish.",
         "expected": "Hola",
-        "actual": "Brief answer: Response to 'Translate the greeting 'Hello, how are you?' into Spanish.'.",
+        "actual": "Hola, \u00bfc\u00f3mo est\u00e1s?",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
-          "answer": 0.0,
+          "answer": 1.0,
           "tools": 1.0,
           "trajectory": 1.0,
-          "composite": 0.4
+          "composite": 1.0
         },
-        "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 16.49
+        "passed": true,
+        "cost_usd": 0.000199,
+        "latency_ms": 1316.53
       },
       {
         "task_id": "easy_06",
         "category": "easy",
         "question": "Classify the sentiment of: 'I love this product, it works brilliantly!'",
         "expected": "positive",
-        "actual": "Brief answer: Response to 'Classify the sentiment of: 'I love this product, it works brilliantly!''.",
+        "actual": "Positive.",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
-          "answer": 0.0,
+          "answer": 1.0,
           "tools": 1.0,
           "trajectory": 1.0,
-          "composite": 0.4
+          "composite": 1.0
         },
-        "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 14.54
+        "passed": true,
+        "cost_usd": 0.000194,
+        "latency_ms": 1104.39
       },
       {
         "task_id": "easy_07",
         "category": "easy",
         "question": "What is the capital city of Australia?",
         "expected": "Canberra",
-        "actual": "The capital of Australia is Canberra.",
+        "actual": "The capital city of Australia is Canberra.",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
           "answer": 1.0,
@@ -1640,42 +1731,20 @@
           "composite": 1.0
         },
         "passed": true,
-        "cost_usd": 0.0,
-        "latency_ms": 13.75
+        "cost_usd": 0.000193,
+        "latency_ms": 1199.46
       },
       {
         "task_id": "easy_08",
         "category": "easy",
         "question": "What does HTTP stand for?",
         "expected": "Hypertext Transfer Protocol",
-        "actual": "Comprehensive analysis: Regarding 'What does HTTP stand for?', here is a structured evaluation with verified nuances and multi-step clarity.",
+        "actual": "HTTP stands for **HyperText Transfer Protocol**.",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 1.0,
-          "trajectory": 1.0,
-          "composite": 0.4
-        },
-        "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 12.87
-      },
-      {
-        "task_id": "easy_09",
-        "category": "easy",
-        "question": "Extract the email address from this message: 'Please reach out at support@gateway.io for help.'",
-        "expected": "support@gateway.io",
-        "actual": "Brief answer: Response to 'Extract the email address from this message: 'Please reach out at support@gateway.io for help.''.",
-        "tools_used": [],
-        "expected_tools": [],
-        "steps": 1,
-        "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
           "answer": 1.0,
@@ -1684,44 +1753,165 @@
           "composite": 1.0
         },
         "passed": true,
-        "cost_usd": 0.0,
-        "latency_ms": 12.46
+        "cost_usd": 0.000188,
+        "latency_ms": 1301.88
+      },
+      {
+        "task_id": "easy_09",
+        "category": "easy",
+        "question": "Extract the email address from this message: 'Please reach out at support@gateway.io for help.'",
+        "expected": "support@gateway.io",
+        "actual": "support@gateway.io",
+        "tools_used": [],
+        "expected_tools": [],
+        "steps": 1,
+        "models_used": [
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 1.0,
+          "trajectory": 1.0,
+          "composite": 1.0
+        },
+        "passed": true,
+        "cost_usd": 0.000192,
+        "latency_ms": 1095.48
       },
       {
         "task_id": "easy_10",
         "category": "easy",
         "question": "What is the chemical symbol for Gold?",
         "expected": "Au",
-        "actual": "Comprehensive analysis: Regarding 'What is the chemical symbol for Gold?', here is a structured evaluation with verified nuances and multi-step clarity.",
+        "actual": "The chemical symbol for Gold is **Au**.",
         "tools_used": [],
         "expected_tools": [],
         "steps": 1,
         "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
-          "answer": 0.0,
+          "answer": 1.0,
           "tools": 1.0,
           "trajectory": 1.0,
-          "composite": 0.4
+          "composite": 1.0
         },
-        "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 11.94
+        "passed": true,
+        "cost_usd": 0.000193,
+        "latency_ms": 998.03
       },
       {
         "task_id": "med_01",
         "category": "medium",
         "question": "Use the calculator tool to calculate: 125 * 84",
         "expected": "10500",
-        "actual": "Thought: I will use the calculator tool or compute directly.\nResult: 10500",
+        "actual": "125\u202f\u00d7\u202f84\u202f=\u202f10,500.",
+        "tools_used": [
+          "calculator"
+        ],
+        "expected_tools": [
+          "calculator"
+        ],
+        "steps": 2,
+        "models_used": [
+          "openai/gpt-oss-120b",
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 1.0,
+          "trajectory": 1.0,
+          "composite": 1.0
+        },
+        "passed": true,
+        "cost_usd": 0.000429,
+        "latency_ms": 2235.33
+      },
+      {
+        "task_id": "med_02",
+        "category": "medium",
+        "question": "Look up our internal knowledge base: What was the reported Q3 revenue?",
+        "expected": "$14.2 Million",
+        "actual": "The reported Q3 revenue was $2.45\u202fbillion.",
+        "tools_used": [],
+        "expected_tools": [
+          "knowledge_lookup"
+        ],
+        "steps": 1,
+        "models_used": [
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 0.0,
+          "tools": 0.0,
+          "trajectory": 1.0,
+          "composite": 0.15
+        },
+        "passed": false,
+        "cost_usd": 0.000274,
+        "latency_ms": 1206.5
+      },
+      {
+        "task_id": "med_03",
+        "category": "medium",
+        "question": "Calculate the arithmetic expression: (4500 / 15) + 380",
+        "expected": "680",
+        "actual": "660.",
         "tools_used": [],
         "expected_tools": [
           "calculator"
         ],
         "steps": 1,
         "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 0.71,
+          "tools": 0.0,
+          "trajectory": 1.0,
+          "composite": 0.576
+        },
+        "passed": false,
+        "cost_usd": 0.000234,
+        "latency_ms": 1082.3
+      },
+      {
+        "task_id": "med_04",
+        "category": "medium",
+        "question": "Query the knowledge base to find the 90-day server uptime percentage of the European cluster.",
+        "expected": "99.982%",
+        "actual": "The 90\u2011day server uptime percentage for the European cluster is 99.92\u202f%.",
+        "tools_used": [],
+        "expected_tools": [
+          "knowledge_lookup"
+        ],
+        "steps": 1,
+        "models_used": [
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 0.0,
+          "tools": 0.0,
+          "trajectory": 1.0,
+          "composite": 0.15
+        },
+        "passed": false,
+        "cost_usd": 0.000254,
+        "latency_ms": 1099.08
+      },
+      {
+        "task_id": "med_05",
+        "category": "medium",
+        "question": "Compute using calculator: 2 ** 10",
+        "expected": "1024",
+        "actual": "1024",
+        "tools_used": [],
+        "expected_tools": [
+          "calculator"
+        ],
+        "steps": 1,
+        "models_used": [
+          "openai/gpt-oss-120b"
         ],
         "scores": {
           "answer": 1.0,
@@ -1730,118 +1920,22 @@
           "composite": 0.75
         },
         "passed": true,
-        "cost_usd": 0.0,
-        "latency_ms": 11.83
-      },
-      {
-        "task_id": "med_02",
-        "category": "medium",
-        "question": "Look up our internal knowledge base: What was the reported Q3 revenue?",
-        "expected": "$14.2 Million",
-        "actual": "Comprehensive analysis: Regarding 'Look up our internal knowledge base: What was the reported Q3 revenue?', here is a structured evaluation with verified nuances and multi-step clarity.",
-        "tools_used": [],
-        "expected_tools": [
-          "knowledge_lookup"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 11.4
-      },
-      {
-        "task_id": "med_03",
-        "category": "medium",
-        "question": "Calculate the arithmetic expression: (4500 / 15) + 380",
-        "expected": "680",
-        "actual": "Thought: I will use the calculator tool or compute directly.\nResult: 300.0",
-        "tools_used": [],
-        "expected_tools": [
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 9.8
-      },
-      {
-        "task_id": "med_04",
-        "category": "medium",
-        "question": "Query the knowledge base to find the 90-day server uptime percentage of the European cluster.",
-        "expected": "99.982%",
-        "actual": "Comprehensive analysis: Regarding 'Query the knowledge base to find the 90-day server uptime percentage of the European cluster.', here is a structured evaluation with verified nuances and multi-step clarity.",
-        "tools_used": [],
-        "expected_tools": [
-          "knowledge_lookup"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 12.13
-      },
-      {
-        "task_id": "med_05",
-        "category": "medium",
-        "question": "Compute using calculator: 2 ** 10",
-        "expected": "1024",
-        "actual": "Comprehensive analysis: Regarding 'Compute using calculator: 2 ** 10', here is a structured evaluation with verified nuances and multi-step clarity.",
-        "tools_used": [],
-        "expected_tools": [
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 10.7
+        "cost_usd": 0.000241,
+        "latency_ms": 1162.45
       },
       {
         "task_id": "med_06",
         "category": "medium",
         "question": "Query the knowledge base for the pricing of llama_8b model.",
         "expected": "$0.05",
-        "actual": "Comprehensive analysis: Regarding 'Query the knowledge base for the pricing of llama_8b model.', here is a structured evaluation with verified nuances and multi-step clarity.",
+        "actual": "The llama_8b model is priced at $0.12 per 1,000 tokens.",
         "tools_used": [],
         "expected_tools": [
           "knowledge_lookup"
         ],
         "steps": 1,
         "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
           "answer": 0.0,
@@ -1850,335 +1944,151 @@
           "composite": 0.15
         },
         "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 10.14
+        "cost_usd": 0.000327,
+        "latency_ms": 1578.33
       },
       {
         "task_id": "med_07",
         "category": "medium",
         "question": "Calculate the total cost of buying 15 items at $34.50 each.",
         "expected": "517.5",
-        "actual": "Comprehensive analysis: Regarding 'Calculate the total cost of buying 15 items at $34.50 each.', here is a structured evaluation with verified nuances and multi-step clarity.",
+        "actual": "$517.50.",
         "tools_used": [],
         "expected_tools": [
           "calculator"
         ],
         "steps": 1,
         "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
-          "answer": 0.0,
+          "answer": 1.0,
           "tools": 0.0,
           "trajectory": 1.0,
-          "composite": 0.15
+          "composite": 0.75
         },
-        "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 13.24
+        "passed": true,
+        "cost_usd": 0.000239,
+        "latency_ms": 1063.22
       },
       {
         "task_id": "med_08",
         "category": "medium",
         "question": "Look up in knowledge base: Who is the principal AI systems architect?",
         "expected": "Alex Chen",
-        "actual": "Brief answer: Response to 'Look up in knowledge base: Who is the principal AI systems architect?'.",
-        "tools_used": [],
+        "actual": "The principal AI systems architect is Alex Chen.",
+        "tools_used": [
+          "knowledge_lookup"
+        ],
         "expected_tools": [
           "knowledge_lookup"
         ],
-        "steps": 1,
+        "steps": 2,
         "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-120b",
+          "openai/gpt-oss-120b"
         ],
         "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
+          "answer": 1.0,
+          "tools": 1.0,
           "trajectory": 1.0,
-          "composite": 0.15
+          "composite": 1.0
         },
-        "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 11.14
+        "passed": true,
+        "cost_usd": 0.000456,
+        "latency_ms": 2158.47
       },
       {
         "task_id": "med_09",
         "category": "medium",
         "question": "Evaluate this math equation: 9876 - 4321 + 555",
         "expected": "6110",
-        "actual": "The answer is approximately 5555",
+        "actual": "6110",
         "tools_used": [],
         "expected_tools": [
           "calculator"
         ],
         "steps": 1,
         "models_used": [
-          "llama-3.1-8b-instant"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
-          "answer": 0.09,
+          "answer": 1.0,
           "tools": 0.0,
           "trajectory": 1.0,
-          "composite": 0.204
+          "composite": 0.75
         },
-        "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 8.9
+        "passed": true,
+        "cost_usd": 0.000263,
+        "latency_ms": 1094.63
       },
       {
         "task_id": "med_10",
         "category": "medium",
         "question": "Look up in the knowledge base: What is the average distance from Earth to Mars?",
         "expected": "225 million kilometers",
-        "actual": "Comprehensive analysis: Regarding 'Look up in the knowledge base: What is the average distance from Earth to Mars?', here is a structured evaluation with verified nuances and multi-step clarity.",
+        "actual": "The average distance from Earth to Mars is about 225 million kilometers (approximately 140 million miles).",
         "tools_used": [],
         "expected_tools": [
           "knowledge_lookup"
         ],
         "steps": 1,
         "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b"
         ],
         "scores": {
-          "answer": 0.0,
+          "answer": 1.0,
           "tools": 0.0,
           "trajectory": 1.0,
-          "composite": 0.15
+          "composite": 0.75
         },
-        "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 11.66
+        "passed": true,
+        "cost_usd": 0.000263,
+        "latency_ms": 1286.07
       },
       {
         "task_id": "hard_01",
         "category": "hard",
         "question": "Step by step, calculate the total token cost for processing 2,500,000 input tokens and 800,000 output tokens on a model priced at $0.59 per 1M input and $0.79 per 1M output tokens.",
         "expected": "2.107",
-        "actual": "Comprehensive analysis: Regarding 'Step by step, calculate the total token cost for processing 2,500,000 input tokens and 800,000 output tokens on a model priced at $0.59 per 1M input and $0.79 per 1M output tokens.', here is a structured evaluation with verified nuances and multi-step clarity.",
-        "tools_used": [],
+        "actual": "**Step\u2011by\u2011step calculation**\n\n1. **Input token cost**  \n   - Input tokens: 2,500,000\u202ftokens = 2.5\u202fmillion tokens  \n   - Price: $0.59 per 1\u202fmillion input tokens  \n   - Cost = 2.5\u202f\u00d7\u202f$0.59 = **$1.475**\n\n2. **Output token cost**  \n   - Output tokens: 800,000\u202ftokens = 0.8\u202fmillion tokens  \n   - Price: $0.79 per 1\u202fmillion output tokens  \n   - Cost = 0.8\u202f\u00d7\u202f$0.79 = **$0.632**\n\n3. **Total cost**  \n   - Total = $1.475 (input) + $0.632 (output) = **$2.107**\n\n**Therefore, processing 2,500,000 input tokens and 800,000 output tokens on this model will cost approximately $2.107.**",
+        "tools_used": [
+          "calculator"
+        ],
         "expected_tools": [
           "calculator"
         ],
-        "steps": 1,
+        "steps": 2,
         "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b",
+          "openai/gpt-oss-120b"
         ],
         "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
+          "answer": 1.0,
+          "tools": 1.0,
           "trajectory": 1.0,
-          "composite": 0.15
+          "composite": 1.0
         },
-        "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 10.77
+        "passed": true,
+        "cost_usd": 0.000922,
+        "latency_ms": 3390.28
       },
       {
         "task_id": "hard_02",
         "category": "hard",
         "question": "Execute Python code using python_repl: calculate the sum of all prime numbers between 10 and 30.",
         "expected": "112",
-        "actual": "```python\ndef solution(data):\n    # Optimized O(n) implementation\n    return [x for x in data if x % 2 == 0]\n```\nExplanation: Filtered even integers.",
-        "tools_used": [],
+        "actual": "",
+        "tools_used": [
+          "python_repl"
+        ],
         "expected_tools": [
           "python_repl"
         ],
-        "steps": 1,
+        "steps": 2,
         "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 10.62
-      },
-      {
-        "task_id": "hard_03",
-        "category": "hard",
-        "question": "First lookup the Q3 revenue in the knowledge base, then use the calculator to compute what a 20% tax deduction on that revenue would leave as net revenue.",
-        "expected": "11.36",
-        "actual": "Comprehensive analysis: Regarding 'First lookup the Q3 revenue in the knowledge base, then use the calculator to compute what a 20% tax deduction on that revenue would leave as net revenue.', here is a structured evaluation with verified nuances and multi-step clarity.",
-        "tools_used": [],
-        "expected_tools": [
-          "knowledge_lookup",
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 9.29
-      },
-      {
-        "task_id": "hard_04",
-        "category": "hard",
-        "question": "Write a python function `def fib(n):` using python_repl that computes the 12th Fibonacci number (where fib(1)=1, fib(2)=1). What is fib(12)?",
-        "expected": "144",
-        "actual": "```python\ndef solution(data):\n    # Optimized O(n) implementation\n    return [x for x in data if x % 2 == 0]\n```\nExplanation: Filtered even integers.",
-        "tools_used": [],
-        "expected_tools": [
-          "python_repl"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 8.36
-      },
-      {
-        "task_id": "hard_05",
-        "category": "hard",
-        "question": "Step by step reasoning: A server cluster has 8 nodes each handling 650 req/sec. If incoming traffic spikes by 35%, how many total requests per second must the cluster handle? Calculate the exact number.",
-        "expected": "7020",
-        "actual": "Comprehensive analysis: Regarding 'Step by step reasoning: A server cluster has 8 nodes each handling 650 req/sec. If incoming traffic spikes by 35%, how many total requests per second must the cluster handle? Calculate the exact number.', here is a structured evaluation with verified nuances and multi-step clarity.",
-        "tools_used": [],
-        "expected_tools": [
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 9.79
-      },
-      {
-        "task_id": "hard_06",
-        "category": "hard",
-        "question": "Look up the population of Paris in the knowledge store, then calculate how many people that would be if the population grew by 15%.",
-        "expected": "2.415",
-        "actual": "Comprehensive analysis: Regarding 'Look up the population of Paris in the knowledge store, then calculate how many people that would be if the population grew by 15%.', here is a structured evaluation with verified nuances and multi-step clarity.",
-        "tools_used": [],
-        "expected_tools": [
-          "knowledge_lookup",
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 8.25
-      },
-      {
-        "task_id": "hard_07",
-        "category": "hard",
-        "question": "Using python_repl, count how many occurrences of the letter 'e' exist in this string: 'distributed asynchronous microservices architecture'.",
-        "expected": "7",
-        "actual": "Brief answer: Response to 'Using python_repl, count how many occurrences of the letter 'e' exist in this string: 'distributed asynchronous microservices architecture'.'.",
-        "tools_used": [],
-        "expected_tools": [
-          "python_repl"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.1-8b-instant"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 8.92
-      },
-      {
-        "task_id": "hard_08",
-        "category": "hard",
-        "question": "Solve this multi-step equation: If x = (144 / 12) + 25, and y = x * 3 - 15, what is the value of y?",
-        "expected": "96",
-        "actual": "Thought: I will use the calculator tool or compute directly.\nResult: 12.0",
-        "tools_used": [],
-        "expected_tools": [
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 9.24
-      },
-      {
-        "task_id": "hard_09",
-        "category": "hard",
-        "question": "Look up the pricing for llama_70b in the knowledge base, then calculate the cost in USD of 5 million input tokens.",
-        "expected": "2.95",
-        "actual": "Comprehensive analysis: Regarding 'Look up the pricing for llama_70b in the knowledge base, then calculate the cost in USD of 5 million input tokens.', here is a structured evaluation with verified nuances and multi-step clarity.",
-        "tools_used": [],
-        "expected_tools": [
-          "knowledge_lookup",
-          "calculator"
-        ],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
-        ],
-        "scores": {
-          "answer": 0.0,
-          "tools": 0.0,
-          "trajectory": 1.0,
-          "composite": 0.15
-        },
-        "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 8.07
-      },
-      {
-        "task_id": "hard_10",
-        "category": "hard",
-        "question": "Step by step logic & code analysis: Analyze a binary search tree with elements [3, 7, 9, 12, 18, 24, 30]. What is the maximum number of comparisons needed to find or confirm absence of any element?",
-        "expected": "3",
-        "actual": "```python\ndef solution(data):\n    # Optimized O(n) implementation\n    return [x for x in data if x % 2 == 0]\n```\nExplanation: Filtered even integers.",
-        "tools_used": [],
-        "expected_tools": [],
-        "steps": 1,
-        "models_used": [
-          "llama-3.3-70b-versatile"
+          "openai/gpt-oss-120b",
+          "openai/gpt-oss-120b"
         ],
         "scores": {
           "answer": 0.0,
@@ -2187,8 +2097,206 @@
           "composite": 0.4
         },
         "passed": false,
-        "cost_usd": 0.0,
-        "latency_ms": 8.97
+        "cost_usd": 0.000787,
+        "latency_ms": 3661.45
+      },
+      {
+        "task_id": "hard_03",
+        "category": "hard",
+        "question": "First lookup the Q3 revenue in the knowledge base, then use the calculator to compute what a 20% tax deduction on that revenue would leave as net revenue.",
+        "expected": "11.36",
+        "actual": "After a 20% tax deduction, the net revenue would be $11.36\u202fMillion.",
+        "tools_used": [
+          "knowledge_lookup"
+        ],
+        "expected_tools": [
+          "knowledge_lookup",
+          "calculator"
+        ],
+        "steps": 2,
+        "models_used": [
+          "openai/gpt-oss-120b",
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 0.67,
+          "trajectory": 1.0,
+          "composite": 0.917
+        },
+        "passed": true,
+        "cost_usd": 0.000644,
+        "latency_ms": 3378.8
+      },
+      {
+        "task_id": "hard_04",
+        "category": "hard",
+        "question": "Write a python function `def fib(n):` using python_repl that computes the 12th Fibonacci number (where fib(1)=1, fib(2)=1). What is fib(12)?",
+        "expected": "144",
+        "actual": "144",
+        "tools_used": [],
+        "expected_tools": [
+          "python_repl"
+        ],
+        "steps": 2,
+        "models_used": [
+          "openai/gpt-oss-120b",
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 0.0,
+          "trajectory": 1.0,
+          "composite": 0.75
+        },
+        "passed": true,
+        "cost_usd": 0.000493,
+        "latency_ms": 2568.73
+      },
+      {
+        "task_id": "hard_05",
+        "category": "hard",
+        "question": "Step by step reasoning: A server cluster has 8 nodes each handling 650 req/sec. If incoming traffic spikes by 35%, how many total requests per second must the cluster handle? Calculate the exact number.",
+        "expected": "7020",
+        "actual": "The cluster must handle 7,020 requests per second after a 35% traffic spike.",
+        "tools_used": [],
+        "expected_tools": [
+          "calculator"
+        ],
+        "steps": 1,
+        "models_used": [
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 0.0,
+          "trajectory": 1.0,
+          "composite": 0.75
+        },
+        "passed": true,
+        "cost_usd": 0.00035,
+        "latency_ms": 1263.82
+      },
+      {
+        "task_id": "hard_06",
+        "category": "hard",
+        "question": "Look up the population of Paris in the knowledge store, then calculate how many people that would be if the population grew by 15%.",
+        "expected": "2.415",
+        "actual": "The population of Paris after a 15% increase would be approximately 2,300,000 people.",
+        "tools_used": [],
+        "expected_tools": [
+          "knowledge_lookup",
+          "calculator"
+        ],
+        "steps": 1,
+        "models_used": [
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 0.0,
+          "tools": 0.0,
+          "trajectory": 1.0,
+          "composite": 0.15
+        },
+        "passed": false,
+        "cost_usd": 0.00038,
+        "latency_ms": 1408.36
+      },
+      {
+        "task_id": "hard_07",
+        "category": "hard",
+        "question": "Using python_repl, count how many occurrences of the letter 'e' exist in this string: 'distributed asynchronous microservices architecture'.",
+        "expected": "7",
+        "actual": "",
+        "tools_used": [],
+        "expected_tools": [
+          "python_repl"
+        ],
+        "steps": 2,
+        "models_used": [
+          "openai/gpt-oss-120b",
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 0.0,
+          "tools": 0.0,
+          "trajectory": 1.0,
+          "composite": 0.15
+        },
+        "passed": false,
+        "cost_usd": 0.000385,
+        "latency_ms": 2929.54
+      },
+      {
+        "task_id": "hard_08",
+        "category": "hard",
+        "question": "Solve this multi-step equation: If x = (144 / 12) + 25, and y = x * 3 - 15, what is the value of y?",
+        "expected": "96",
+        "actual": "96",
+        "tools_used": [],
+        "expected_tools": [
+          "calculator"
+        ],
+        "steps": 1,
+        "models_used": [
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 0.0,
+          "trajectory": 1.0,
+          "composite": 0.75
+        },
+        "passed": true,
+        "cost_usd": 0.000222,
+        "latency_ms": 897.26
+      },
+      {
+        "task_id": "hard_09",
+        "category": "hard",
+        "question": "Look up the pricing for llama_70b in the knowledge base, then calculate the cost in USD of 5 million input tokens.",
+        "expected": "2.95",
+        "actual": "The cost for 5 million input tokens with llama_70b is $3,750.",
+        "tools_used": [],
+        "expected_tools": [
+          "knowledge_lookup",
+          "calculator"
+        ],
+        "steps": 1,
+        "models_used": [
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 0.0,
+          "tools": 0.0,
+          "trajectory": 1.0,
+          "composite": 0.15
+        },
+        "passed": false,
+        "cost_usd": 0.000336,
+        "latency_ms": 1881.71
+      },
+      {
+        "task_id": "hard_10",
+        "category": "hard",
+        "question": "Step by step logic & code analysis: Analyze a binary search tree with elements [3, 7, 9, 12, 18, 24, 30]. What is the maximum number of comparisons needed to find or confirm absence of any element?",
+        "expected": "3",
+        "actual": "**Step\u2011by\u2011step reasoning**\n\n1. **What we are asked**  \n   - We have a binary search tree (BST) that stores the seven keys  \n     \\[3, 7, 9, 12, 18, 24, 30\\].  \n   - When we search for a key (whether it is present or not) we compare the key we are looking for with the key stored at the current node, then move left or right accordingly.  \n   - The *maximum* number of comparisons required in the worst case equals the **height** of the tree (the number of nodes on the longest root\u2011to\u2011leaf path), because we compare once at each node we visit.\n\n2. **What shape does the BST have?**  \n   - The problem does not give an insertion order, but the usual \u201canalysis\u201d of a BST with a known set of keys assumes the *most balanced* arrangement (otherwise the worst\u2011case height could be as large as the number of keys, i.e., a degenerate list).  \n   - With 7 keys we can build a perfectly balanced BST by inserting the median first, then recursively inserting the medians of the left and right sub\u2011arrays.\n\n3. **Construct the balanced BST**  \n\n   ```\n           12\n         /    \\\n        7      24\n       / \\    /  \\\n      3   9  18  30\n   ```\n\n   - Level 1 (root): 12  \n   - Level 2: 7 (left child), 24 (right child)  \n   - Level 3 (leaves): 3, 9, 18, 30  \n\n4. **Determine the height**  \n   - Height = number of levels = 3.  \n   - The longest root\u2011to\u2011leaf path contains 3 nodes (e.g., 12 \u2192 7 \u2192 3).\n\n5. **Maximum number of comparisons**  \n   - At each visited node we perform one key comparison.  \n   - Therefore, in the worst case we will compare at most **3 times** before we either find the key (if it is at a leaf) or discover that the key is absent (when we fall off a null child after the third comparison).\n\n6. **Edge cases**  \n   - If the BST were *unbalanced* (e.g., inserted in sorted order), the height could be 7 and the worst\u2011case comparisons would be 7.  \n   - The question asks for the maximum number *given the set of elements* and typical analysis, which assumes the optimal (balanced) shape, so we answer 3.\n\n---\n\n**Final Answer**\n\nThe maximum number of comparisons needed to find (or confirm the absence of) any element in a balanced binary search tree containing the seven keys \\[3,\u202f7,\u202f9,\u202f12,\u202f18,\u202f24,\u202f30\\] is **3 comparisons**.",
+        "tools_used": [],
+        "expected_tools": [],
+        "steps": 1,
+        "models_used": [
+          "openai/gpt-oss-120b"
+        ],
+        "scores": {
+          "answer": 1.0,
+          "tools": 1.0,
+          "trajectory": 1.0,
+          "composite": 1.0
+        },
+        "passed": true,
+        "cost_usd": 0.000937,
+        "latency_ms": 2840.63
       }
     ]
   }

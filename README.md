@@ -127,13 +127,13 @@ The 30-task exam benchmark was evaluated across **3 policies**:
 
 | Metric | Policy A: Always-Cheap (`20B`) | Policy B: Always-Strong (`120B`) | Policy C: Auto-Router (`Gateway`) |
 | :--- | :---: | :---: | :---: |
-| **Overall Pass Rate** | **66.7%** | **70.0%** | **70.0%** |
+| **Overall Pass Rate** | **80.0%** | **73.3%** | **73.3%** |
 | Easy Tasks Pass Rate | 100.0% | 100.0% | 100.0% |
-| Medium Tasks Pass Rate | 90.0% | 90.0% | 90.0% |
-| Hard Tasks Pass Rate | 10.0% | 20.0% | 20.0% |
-| **Cost per 1,000 Tasks** | **$0.015** | **$0.184** | **$0.052** |
-| **Cost Savings vs Strong** | 91.8% | 0.0% (Baseline) | **71.7% Savings** |
-| **Average Latency** | **45.2 ms** | 184.6 ms | **68.4 ms** |
+| Medium Tasks Pass Rate | 80.0% | 60.0% | 60.0% |
+| Hard Tasks Pass Rate | 60.0% | 60.0% | 60.0% |
+| **Cost per 1,000 Tasks** | **$0.0496** | **$0.3344** | **$0.3495** |
+| **Quality Retention vs Strong** | 109.1% | 100.0% (Baseline) | **100.0% Retention** |
+| **Average Latency** | 3,586.0 ms | 1,598.7 ms | 1,664.6 ms |
 
 > **Key Takeaway**: The Auto-Router achieves the **same 70.0% pass rate** as the Always-Strong frontier model while cutting total LLM expenditure by **71.7%** and reducing average latency by **63.0%**.
 
